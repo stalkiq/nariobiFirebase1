@@ -1,5 +1,6 @@
+
 import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+// Footer removed as per new design
 
 export default function MainLayout({
   children,
@@ -7,10 +8,12 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow">{children}</main>
-      <Footer />
+      <main className="flex-grow container mx-auto px-4 py-4"> {/* Added padding to main content area */}
+        {children}
+      </main>
+      {/* Footer component removed */}
     </div>
   );
 }

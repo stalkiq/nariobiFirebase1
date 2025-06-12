@@ -1,36 +1,68 @@
-import Link from 'next/link';
-import { School, Home, BookOpenText, UsersRound, GraduationCap, MapPinned, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
-const navItems = [
-  { href: '/', label: 'Home', icon: <Home size={18} /> },
-  { href: '/courses', label: 'Courses', icon: <BookOpenText size={18} /> },
-  { href: '/faculty', label: 'Faculty', icon: <UsersRound size={18} /> },
-  { href: '/students', label: 'Students', icon: <GraduationCap size={18} /> },
-  { href: '/campus-tour', label: 'Campus Tour', icon: <MapPinned size={18} /> },
-  { href: '/ai-tool', label: 'AI Content Tool', icon: <Sparkles size={18} /> },
-];
+import Link from 'next/link';
+import Image from 'next/image';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { School, Search, ChevronDown } from 'lucide-react'; // ChevronDown for dropdowns
 
 export default function Header() {
+  // Placeholder course tabs, in a real app this would be dynamic
+  const courseTabs = ['COMP3400', 'COMP7811', 'DECO2500', 'CSSE6400'];
+
   return (
-    <header className="bg-card shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/90 transition-colors">
-          <School size={32} />
-          <h1 className="text-2xl font-headline font-semibold">Nairobi Online College</h1>
+    <div className="bg-uq-header-bg text-primary-foreground">
+      <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+        {/* Logo Section */}
+        <Link href="/dashboard" className="flex items-center gap-2">
+          {/* Using School icon as a placeholder for UQ logo style */}
+          <div className="bg-white p-1 rounded-sm">
+            <School size={28} className="text-uq-header-bg" />
+          </div>
+          <div>
+            <h1 className="text-lg font-bold">NAIROBI ONLINE COLLEGE</h1>
+            <p className="text-xs">AUSTRALIA</p> {/* Mimicking the subtext */}
+          </div>
         </Link>
-        <nav className="hidden md:flex items-center space-x-2">
-          {navItems.map((item) => (
-            <Button key={item.label} variant="ghost" asChild>
-              <Link href={item.href} className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-accent-foreground hover:bg-accent px-3 py-2 rounded-md">
-                {item.icon}
-                {item.label}
-              </Link>
-            </Button>
-          ))}
-        </nav>
-        {/* Mobile menu button can be added here */}
+
+        {/* Placeholder for top right links if any (e.g., user profile) */}
+        <div className="text-sm">
+          {/* User Name / Profile link could go here */}
+        </div>
       </div>
-    </header>
+      
+      {/* Main Navigation Tabs */}
+      <nav className="bg-uq-nav-bg">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}> {/* Assuming Welcome is active */}
+              Welcome
+            </Link>
+            {courseTabs.map(course => (
+              <Link key={course} href={`/courses/${course.toLowerCase()}`} className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 rounded-t-sm">
+                {course}
+              </Link>
+            ))}
+            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 rounded-t-sm">
+              Notifications Dashboard
+            </Link>
+          </div>
+
+          {/* Course Search */}
+          <div className="flex items-center gap-1 py-1.5">
+            <Button variant="ghost" className="text-primary-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
+              Course Search
+            </Button>
+            <Input 
+              type="search" 
+              placeholder="" 
+              className="h-7 text-xs w-32 bg-white text-gray-900 border-gray-400 focus:ring-ring focus:border-ring"
+            />
+            <Button variant="secondary" size="sm" className="h-7 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 px-2.5">
+              Go
+            </Button>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 }

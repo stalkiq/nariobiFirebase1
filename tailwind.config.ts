@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -10,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['Arial', 'Helvetica', 'sans-serif'], // Changed to match typical portal style
+        headline: ['Arial', 'Helvetica', 'sans-serif'], // Changed
         code: ['monospace'],
       },
       colors: {
@@ -46,30 +47,23 @@ export default {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
+        input: {
+          DEFAULT: 'hsl(var(--input))',
+          border: 'hsl(var(--input-border))',
+        },
         ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-        },
+        // UQ Specific theme colors
+        'uq-header-bg': 'hsl(var(--uq-header-bg))',
+        'uq-nav-bg': 'hsl(var(--uq-nav-bg))',
+        'uq-module-header-bg': 'hsl(var(--uq-module-header-bg))',
+        'uq-module-header-text': 'hsl(var(--uq-module-header-text))',
+        'uq-sidebar-bg': 'hsl(var(--uq-sidebar-bg))',
+        'uq-content-bg': 'hsl(var(--uq-content-bg))',
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: 'var(--radius)', // Will be small due to :root --radius
+        md: 'calc(var(--radius))',
+        sm: 'calc(var(--radius))',
       },
       keyframes: {
         'accordion-down': {
