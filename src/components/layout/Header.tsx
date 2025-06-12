@@ -19,8 +19,7 @@ export default function Header() {
             <School size={28} className="text-uq-header-bg" />
           </div>
           <div>
-            <h1 className="text-lg font-bold">NAIROBI ONLINE COLLEGE</h1>
-            <p className="text-xs">AUSTRALIA</p> {/* Mimicking the subtext */}
+            <h1 className="text-lg font-bold">Nairobi College</h1>
           </div>
         </Link>
 
