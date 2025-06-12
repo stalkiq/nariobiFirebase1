@@ -2,7 +2,7 @@
 import PageWrapper from '@/components/layout/PageWrapper';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Lightbulb, Users, Target, BookHeart, Landmark, Home, MessageSquareQuote, GraduationCap, ChevronLeft, Edit } from 'lucide-react';
+import { Lightbulb, Users, Target, BookHeart, Landmark, Home, MessageSquareQuote, GraduationCap, ChevronLeft, Edit, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
@@ -102,5 +102,3 @@ export default function HistoryPage() {
     </PageWrapper>
   );
 }
-
-    
