@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
-import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History } from 'lucide-react';
+import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History as HistoryIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input'; 
 
 // Helper component for sidebar sections
@@ -28,9 +28,14 @@ const SidebarModule = ({ title, children, defaultOpen = false }: { title: string
   </Card>
 );
 
-const SidebarLink = ({ href, children, icon, target }: { href: string, children: React.ReactNode, icon?: React.ReactNode, target?: string }) => (
+const SidebarLink = ({ href, children, icon, target, centered }: { href: string, children: React.ReactNode, icon?: React.ReactNode, target?: string, centered?: boolean }) => (
   <li className="border-b border-border last:border-b-0">
-    <Link href={href} className="flex items-center gap-2 px-3 py-1.5 hover:bg-secondary" target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
+    <Link
+      href={href}
+      className={`flex items-center px-3 py-1.5 hover:bg-secondary ${icon ? 'gap-2' : ''} ${centered && !icon ? 'justify-center' : ''}`}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    >
       {icon}
       {children}
     </Link>
@@ -62,7 +67,7 @@ export default function DashboardPage() {
         {/* Left Sidebar: Tools */}
         <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="Tools" defaultOpen={true}>
-            <SidebarLink href="/dashboard/history" icon={<History size={14}/>}>History</SidebarLink>
+            <SidebarLink href="/dashboard/history" centered>History</SidebarLink>
             <SidebarLink href="/dashboard/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
             <SidebarLink href="/dashboard/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="/dashboard/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
@@ -172,5 +177,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-    
