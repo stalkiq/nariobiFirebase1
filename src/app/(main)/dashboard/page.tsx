@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
 import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen } from 'lucide-react';
-import { Input } from '@/components/ui/input'; // Added import
+import { Input } from '@/components/ui/input'; 
 
 // Helper component for sidebar sections
 const SidebarModule = ({ title, children, defaultOpen = false }: { title: string, children: React.ReactNode, defaultOpen?: boolean }) => (
@@ -105,10 +105,10 @@ export default function DashboardPage() {
             <div className="py-3">
               <h2 className="text-xl font-semibold text-primary mb-2">Welcome to Nairobi Online College</h2>
               <p className="text-sm text-foreground mb-3 leading-relaxed">
-                Nairobi Online College carries forward the pioneering spirit of the original Nairobi College (East Palo Alto, 1969), an institution founded by students and community members, dedicated to making education "relevant to the ghetto community." It was a "college without walls," deeply embedded in its community, offering courses that addressed immediate local problems alongside traditional academic subjects.
+                Nairobi Online College, inspired by the original Nairobi College founded in 1969, is not in East Africa, but in East Palo Alto, California. It was a community-run college primarily for "people of color," dedicated to making education "relevant to the ghetto community." This pioneering institution was a "college without walls," deeply embedded in its surroundings, offering courses addressing local problems alongside traditional studies.
               </p>
               <p className="text-sm text-foreground mb-3 leading-relaxed">
-                Our online campus today strives to embody that same commitment: providing accessible, empowering education tailored to the needs of our students and their communities. We believe in fostering critical thinking, community responsibility, and lifelong learning.
+                The administration building was a "dilapidated white shingle house... Nothing distinguishes the house from any other on the block, nothing but the daylong-nightlong stream of visitors. But 'the people' know where Nairobi College is." Classes were held in homes, churches, and community facilities. Students and teachers pitched in: "Nails are banged into walls; desks painted; screens must be installed." This hands-on, community-built ethos is a core part of our heritage.
               </p>
                <blockquote className="border-l-2 border-accent pl-2 text-xs italic text-muted-foreground my-3">
                 "The college shows that rather than fight, we can create... It shows that we can do things for ourselves and gives us a sense of group pride." - Pastor James Branch (on the original Nairobi College)
