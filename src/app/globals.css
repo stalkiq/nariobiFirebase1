@@ -9,127 +9,127 @@ body {
 
 @layer base {
   :root {
-    /* Africa Black Panther Inspired Theme - Light Mode (Current Base) */
-    --background: 30 20% 97%; /* Very light, slightly warm off-white */
+    /* Light Brown and Black Sleek Theme - Light Mode */
+    --background: 35 25% 88%; /* Light warm beige/brown */
     --foreground: 0 0% 10%; /* Near black for text */
 
-    --card: 0 0% 100%; /* White for cards */
+    --card: 35 20% 85%; /* Slightly darker light brown for cards */
     --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 100%;
+    --popover: 35 25% 92%; /* Slightly lighter light brown for popovers */
     --popover-foreground: 0 0% 10%;
 
     --primary: 0 0% 8%; /* Black for primary actions */
-    --primary-foreground: 0 0% 98%; /* White text on primary */
+    --primary-foreground: 35 25% 95%; /* Very light brown/off-white text on primary */
 
-    --secondary: 30 15% 90%; /* Lighter warm tone */
+    --secondary: 35 20% 80%; /* A slightly darker/muted light brown */
     --secondary-foreground: 0 0% 10%;
 
-    --muted: 30 15% 85%; /* Muted warm tone */
-    --muted-foreground: 0 0% 35%; /* Darker muted text */
+    --muted: 35 15% 75%; /* Even more muted light brown */
+    --muted-foreground: 0 0% 30%; /* Darker muted text */
 
-    --accent: 0 75% 50%; /* Strong, vibrant Red (Pan-African color) */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --accent: 30 30% 50%; /* Medium noticeable brown for accent */
+    --accent-foreground: 35 25% 95%; /* Very light brown/off-white text on accent */
     
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84.2% 60.2%; /* Standard red for destructive */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 30 10% 80%; /* Subtle warm border */
-    --input: 0 0% 100%; /* Input background (white) */
-    --input-border: 30 10% 75%;
-    --ring: 0 75% 60%; /* Ring color (red accent) */
+    --border: 35 15% 70%; /* Subtle brown border */
+    --input: 0 0% 100%; /* White for input background for sleekness */
+    --input-border: 35 15% 65%; /* Border for inputs */
+    --ring: 30 30% 55%; /* Accent-based ring color */
     
     --radius: 0.1rem; /* Sharper corners */
 
-    /* Specific to the portal layout, re-themed */
+    /* UQ Portal Theme - Light Brown and Black */
     --uq-header-bg: 0 0% 8%; /* Black header */
     --uq-nav-bg: 0 0% 12%; /* Dark Grey nav tabs */
-    --uq-module-header-bg: 0 75% 45%; /* Red accent for module headers */
-    --uq-module-header-text: 0 0% 100%; /* White text on module headers */
-    --uq-sidebar-bg: 30 20% 94%; /* Slightly darker warm off-white for sidebars */
-    --uq-content-bg: 0 0% 100%; /* White for main content panels */
+    --uq-module-header-bg: 30 30% 50%; /* Accent brown for module headers */
+    --uq-module-header-text: 35 25% 95%; /* Light text on module headers */
+    --uq-sidebar-bg: 35 20% 85%; /* Slightly darker light brown for sidebars */
+    --uq-content-bg: 35 25% 90%; /* Light brown for main content panels */
 
-    /* Course Player Theme (New) */
-    --course-page-bg: 240 6% 10%; /* Overall page background - very dark grey */
-    --course-header-bg: 240 6% 14%; /* Slightly lighter for header */
-    --course-sidebar-bg: 240 6% 14%; /* Sidebar background */
-    --course-content-area-bg: 240 4% 20%; /* Content area background */
+    /* Course Player Theme - Light Brown and Black */
+    --course-page-bg: 35 25% 88%; /* Main page background */
+    --course-header-bg: 0 0% 8%; /* Black header for sleek contrast */
+    --course-sidebar-bg: 35 20% 85%; /* Sidebar background */
+    --course-content-area-bg: 35 25% 92%; /* Content area background, slightly lighter */
     
-    --course-green-info-bg: 140 65% 35%; /* Main green for info boxes */
-    --course-green-info-foreground: 0 0% 100%;
-    --course-green-item-bg: 140 60% 30%; /* Darker green for question-like items */
-    --course-green-item-foreground: 0 0% 95%;
-    --course-green-button-bg: 140 55% 42%; /* Green for buttons */
-    --course-green-button-hover-bg: 140 55% 37%;
-    --course-green-button-foreground: 0 0% 100%;
+    --course-green-info-bg: 30 30% 40%; /* Darker, rich brown for info boxes */
+    --course-green-info-foreground: 35 25% 95%;
+    --course-green-item-bg: 30 30% 35%; /* Even darker brown for item backgrounds */
+    --course-green-item-foreground: 35 25% 90%;
+    --course-green-button-bg: 0 0% 15%; /* Dark grey/off-black for buttons */
+    --course-green-button-hover-bg: 0 0% 5%; /* Near black hover */
+    --course-green-button-foreground: 35 25% 95%;
 
-    --course-text-primary: 210 25% 95%; /* Primary text (light) */
-    --course-text-secondary: 210 20% 80%; /* Secondary/muted text */
-    --course-text-tertiary: 210 15% 65%; /* Tertiary/icon text */
+    --course-text-primary: 0 0% 10%; /* Black text on light brown */
+    --course-text-secondary: 0 0% 30%; /* Dark grey */
+    --course-text-tertiary: 0 0% 45%; /* Medium grey */
 
-    --course-border-color: 240 5% 25%;
-    --course-active-item-bg: 240 8% 22%; 
+    --course-border-color: 35 15% 70%; /* Subtle brown border */
+    --course-active-item-bg: 35 20% 80%; /* Active item bg - slightly darker light brown */
   }
 
   .dark {
-    /* Define dark theme if needed, for now focusing on light theme */
-    /* For a Black Panther dark theme, you'd invert many of these */
-    --background: 0 0% 8%; /* Dark background */
-    --foreground: 0 0% 92%; /* Light text */
+    /* Light Brown and Black Sleek Theme - Dark Mode */
+    --background: 25 10% 15%; /* Very dark brown */
+    --foreground: 35 25% 85%; /* Light beige text */
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 92%;
+    --card: 25 10% 20%;
+    --card-foreground: 35 25% 85%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 92%;
+    --popover: 25 10% 20%;
+    --popover-foreground: 35 25% 85%;
 
-    --primary: 0 75% 60%; /* Red accent becomes primary in dark */
-    --primary-foreground: 0 0% 10%; 
+    --primary: 35 25% 80%; /* Light brown becomes primary in dark */
+    --primary-foreground: 0 0% 10%; /* Black text on light brown */
 
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 92%;
+    --secondary: 25 10% 25%;
+    --secondary-foreground: 35 25% 85%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 25 10% 30%;
+    --muted-foreground: 35 25% 70%;
 
-    --accent: 30 80% 60%; /* Gold/Ochre could be a dark mode accent */
+    --accent: 30 40% 60%; /* A more prominent brown for dark mode accent */
     --accent-foreground: 0 0% 10%;
 
     --destructive: 0 70% 40%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 15%;
-    --input-border: 0 0% 30%;
-    --ring: 0 75% 60%;
+    --border: 25 10% 30%;
+    --input: 25 10% 22%; /* Darker input background */
+    --input-border: 25 10% 35%;
+    --ring: 30 40% 60%;
 
+    /* UQ Portal Theme - Dark Mode */
     --uq-header-bg: 0 0% 5%; 
     --uq-nav-bg: 0 0% 8%; 
-    --uq-module-header-bg: 0 75% 55%; /* Red accent for module headers */
-    --uq-module-header-text: 0 0% 100%;
-    --uq-sidebar-bg: 0 0% 10%; 
-    --uq-content-bg: 0 0% 12%; 
+    --uq-module-header-bg: 30 40% 55%; /* Accent brown for module headers in dark */
+    --uq-module-header-text: 35 25% 95%;
+    --uq-sidebar-bg: 25 10% 18%; 
+    --uq-content-bg: 25 10% 20%; 
 
-    /* Course Player Theme (Dark) - Same as light for this specific design */
-    --course-page-bg: 240 6% 10%;
-    --course-header-bg: 240 6% 14%;
-    --course-sidebar-bg: 240 6% 14%;
-    --course-content-area-bg: 240 4% 20%;
+    /* Course Player Theme - Dark Mode */
+    --course-page-bg: 25 10% 15%; /* Dark brown page background */
+    --course-header-bg: 35 25% 85%; /* Light brown header on dark page for contrast */
+    --course-sidebar-bg: 25 10% 18%;
+    --course-content-area-bg: 25 10% 22%;
     
-    --course-green-info-bg: 140 65% 35%;
-    --course-green-info-foreground: 0 0% 100%;
-    --course-green-item-bg: 140 60% 30%;
-    --course-green-item-foreground: 0 0% 95%;
-    --course-green-button-bg: 140 55% 42%;
-    --course-green-button-hover-bg: 140 55% 37%;
-    --course-green-button-foreground: 0 0% 100%;
+    --course-green-info-bg: 30 30% 70%; /* Lighter brown for info boxes on dark */
+    --course-green-info-foreground: 0 0% 10%;
+    --course-green-item-bg: 30 30% 65%;
+    --course-green-item-foreground: 0 0% 15%;
+    --course-green-button-bg: 35 25% 80%; /* Light brown buttons */
+    --course-green-button-hover-bg: 35 25% 75%;
+    --course-green-button-foreground: 0 0% 10%;
 
-    --course-text-primary: 210 25% 95%;
-    --course-text-secondary: 210 20% 80%;
-    --course-text-tertiary: 210 15% 65%;
+    --course-text-primary: 35 25% 90%; /* Light text */
+    --course-text-secondary: 35 25% 75%;
+    --course-text-tertiary: 35 25% 60%;
 
-    --course-border-color: 240 5% 25%;
-    --course-active-item-bg: 240 8% 22%;
+    --course-border-color: 25 10% 30%;
+    --course-active-item-bg: 25 10% 25%;
   }
 }
 
