@@ -1,3 +1,4 @@
+
 export interface Course {
   id: string;
   title: string;
@@ -78,4 +79,21 @@ export const courses: Course[] = [
       'Grasp the impact of policy on urban communities.'
     ],
   },
+  {
+    id: 'comp3400',
+    title: 'Developmental Skills (COMP3400)',
+    shortDescription: 'Focuses on foundational English language skills: spelling, pronunciation, and syntax.',
+    longDescription: `This course, led by Mary Hoover, addresses fundamental English language needs. Every Tuesday and Thursday from 3-5 PM, students are drilled out of the lingual rut often ignored by previous schooling. The curriculum covers basic spelling, pronunciation, and syntax, with students actively participating by repeating words after their teacher and taking dictation. Students approach the remedial nature of the subject with a focus on learning and improvement. As student Naiomi Moss explains, "The class is a real help. There's more detail and explanation here at Nairobi; the people just seem to care more than at other schools. They get down to the basic problems."`,
+    creditHours: 3,
+    instructorIds: ['mary_hoover'],
+    department: 'Foundational Studies',
+    image: 'https://placehold.co/600x400.png?a=comp3400',
+    learningOutcomes: [
+      'Improve basic spelling and pronunciation.',
+      'Understand and apply correct English syntax.',
+      'Develop confidence in foundational language skills.',
+      'Engage actively in learning through repetition and dictation.'
+    ],
+    prerequisites: ['Placement Assessment or Instructor Permission']
+  }
 ];

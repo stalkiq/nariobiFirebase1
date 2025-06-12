@@ -7,7 +7,7 @@ import { School, Search, ChevronDown } from 'lucide-react'; // ChevronDown for d
 
 export default function Header() {
   // Placeholder course tabs, in a real app this would be dynamic
-  const courseTabs = ['COMP3400', 'COMP7811', 'DECO2500', 'CSSE6400'];
+  const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; // Added CS101, ENG202, BUS305 as examples
 
   return (
     <div className="bg-uq-header-bg text-primary-foreground">

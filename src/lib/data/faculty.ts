@@ -1,3 +1,4 @@
+
 export interface FacultyMember {
   id: string;
   name: string;
@@ -83,6 +84,19 @@ export const faculty: FacultyMember[] = [
     ],
     coursesTaughtIds: ['soc110']
   },
+  {
+    id: 'mary_hoover',
+    name: 'Mary Hoover',
+    title: 'Instructor, Foundational Studies',
+    department: 'Foundational Studies',
+    bio: 'Mary Hoover is dedicated to helping students build essential academic foundations. She specializes in developmental English, creating a supportive environment where students can confidently address and overcome challenges in spelling, pronunciation, and syntax. Her teaching philosophy emphasizes direct engagement and personalized attention to ensure every student masters the core skills necessary for success. She is known for her caring approach and commitment to addressing the basic problems students face.',
+    email: 'mary.hoover@nairobi.online',
+    officeHours: 'By Appointment (coordinates with class times)',
+    image: 'https://placehold.co/400x400.png?a=maryhoover',
+    areasOfExpertise: ['Developmental English', 'Remedial Education', 'Syntax and Grammar', 'Pronunciation Skills'],
+    publications: [],
+    coursesTaughtIds: ['comp3400']
+  }
 ];
 
 export const getFacultyById = (id: string) => faculty.find(f => f.id === id);
