@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
-import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen } from 'lucide-react';
+import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library } from 'lucide-react';
 import { Input } from '@/components/ui/input'; 
 
 // Helper component for sidebar sections
@@ -78,7 +78,7 @@ export default function DashboardPage() {
              </div>
           </SidebarModule>
           <SidebarModule title="External Tools">
-            <SidebarLink href="https://www.google.com/search?q=public+libraries+San+Mateo+County+Santa+Clara+County" icon={<ExternalLink size={14}/>} target="_blank">Library Access</SidebarLink>
+            <SidebarLink href="/dashboard/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="#" icon={<ExternalLink size={14}/>} target="_blank">Research Databases</SidebarLink>
           </SidebarModule>
         </aside>
