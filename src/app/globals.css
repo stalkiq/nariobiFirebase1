@@ -9,7 +9,7 @@ body {
 
 @layer base {
   :root {
-    /* Africa Black Panther Inspired Theme - Light Mode */
+    /* Africa Black Panther Inspired Theme - Light Mode (Current Base) */
     --background: 30 20% 97%; /* Very light, slightly warm off-white */
     --foreground: 0 0% 10%; /* Near black for text */
 
@@ -48,6 +48,27 @@ body {
     --uq-module-header-text: 0 0% 100%; /* White text on module headers */
     --uq-sidebar-bg: 30 20% 94%; /* Slightly darker warm off-white for sidebars */
     --uq-content-bg: 0 0% 100%; /* White for main content panels */
+
+    /* Course Player Theme (New) */
+    --course-page-bg: 240 6% 10%; /* Overall page background - very dark grey */
+    --course-header-bg: 240 6% 14%; /* Slightly lighter for header */
+    --course-sidebar-bg: 240 6% 14%; /* Sidebar background */
+    --course-content-area-bg: 240 4% 20%; /* Content area background */
+    
+    --course-green-info-bg: 140 65% 35%; /* Main green for info boxes */
+    --course-green-info-foreground: 0 0% 100%;
+    --course-green-item-bg: 140 60% 30%; /* Darker green for question-like items */
+    --course-green-item-foreground: 0 0% 95%;
+    --course-green-button-bg: 140 55% 42%; /* Green for buttons */
+    --course-green-button-hover-bg: 140 55% 37%;
+    --course-green-button-foreground: 0 0% 100%;
+
+    --course-text-primary: 210 25% 95%; /* Primary text (light) */
+    --course-text-secondary: 210 20% 80%; /* Secondary/muted text */
+    --course-text-tertiary: 210 15% 65%; /* Tertiary/icon text */
+
+    --course-border-color: 240 5% 25%;
+    --course-active-item-bg: 240 8% 22%; 
   }
 
   .dark {
@@ -88,6 +109,27 @@ body {
     --uq-module-header-text: 0 0% 100%;
     --uq-sidebar-bg: 0 0% 10%; 
     --uq-content-bg: 0 0% 12%; 
+
+    /* Course Player Theme (Dark) - Same as light for this specific design */
+    --course-page-bg: 240 6% 10%;
+    --course-header-bg: 240 6% 14%;
+    --course-sidebar-bg: 240 6% 14%;
+    --course-content-area-bg: 240 4% 20%;
+    
+    --course-green-info-bg: 140 65% 35%;
+    --course-green-info-foreground: 0 0% 100%;
+    --course-green-item-bg: 140 60% 30%;
+    --course-green-item-foreground: 0 0% 95%;
+    --course-green-button-bg: 140 55% 42%;
+    --course-green-button-hover-bg: 140 55% 37%;
+    --course-green-button-foreground: 0 0% 100%;
+
+    --course-text-primary: 210 25% 95%;
+    --course-text-secondary: 210 20% 80%;
+    --course-text-tertiary: 210 15% 65%;
+
+    --course-border-color: 240 5% 25%;
+    --course-active-item-bg: 240 8% 22%;
   }
 }
 

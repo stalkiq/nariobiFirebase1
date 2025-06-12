@@ -11,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Arial', 'Helvetica', 'sans-serif'], // Changed to match typical portal style
-        headline: ['Arial', 'Helvetica', 'sans-serif'], // Changed
+        body: ['Arial', 'Helvetica', 'sans-serif'], 
+        headline: ['Arial', 'Helvetica', 'sans-serif'], 
         code: ['monospace'],
       },
       colors: {
@@ -59,9 +59,26 @@ export default {
         'uq-module-header-text': 'hsl(var(--uq-module-header-text))',
         'uq-sidebar-bg': 'hsl(var(--uq-sidebar-bg))',
         'uq-content-bg': 'hsl(var(--uq-content-bg))',
+        // Course Player Theme Colors
+        'course-page-bg': 'hsl(var(--course-page-bg))',
+        'course-header-bg': 'hsl(var(--course-header-bg))',
+        'course-sidebar-bg': 'hsl(var(--course-sidebar-bg))',
+        'course-content-area-bg': 'hsl(var(--course-content-area-bg))',
+        'course-green-info-bg': 'hsl(var(--course-green-info-bg))',
+        'course-green-info-foreground': 'hsl(var(--course-green-info-foreground))',
+        'course-green-item-bg': 'hsl(var(--course-green-item-bg))',
+        'course-green-item-foreground': 'hsl(var(--course-green-item-foreground))',
+        'course-green-button-bg': 'hsl(var(--course-green-button-bg))',
+        'course-green-button-hover-bg': 'hsl(var(--course-green-button-hover-bg))',
+        'course-green-button-foreground': 'hsl(var(--course-green-button-foreground))',
+        'course-text-primary': 'hsl(var(--course-text-primary))',
+        'course-text-secondary': 'hsl(var(--course-text-secondary))',
+        'course-text-tertiary': 'hsl(var(--course-text-tertiary))',
+        'course-border-color': 'hsl(var(--course-border-color))',
+        'course-active-item-bg': 'hsl(var(--course-active-item-bg))',
       },
       borderRadius: {
-        lg: 'var(--radius)', // Will be small due to :root --radius
+        lg: 'var(--radius)', 
         md: 'calc(var(--radius))',
         sm: 'calc(var(--radius))',
       },
