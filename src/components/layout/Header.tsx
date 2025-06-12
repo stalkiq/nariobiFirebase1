@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { School, Search, Bell } from 'lucide-react';
+import { Bell } from 'lucide-react'; // Removed School, Search
 
 export default function Header() {
   // Placeholder course tabs, in a real app this would be dynamic
@@ -15,14 +15,24 @@ export default function Header() {
         {/* Logo Section - Main title should be "Nairobi College" */}
         <Link href="/dashboard" className="flex items-center gap-2">
           <div className="bg-white p-1 rounded-sm">
-            <School size={28} className="text-uq-header-bg" />
+            {/* Custom SVG icon for a person with an afro */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              className="text-uq-header-bg" // This will make currentColor black
+              fill="currentColor" // Ensures the paths are filled with the color from className
+            >
+              <path d="M12 2C9.27 2 7.02 3.64 6 6c-1.57 3.59-1.57 7.39.01 10.99C7.03 20.36 9.27 22 12 22s4.97-1.64 6-5.01c1.58-3.6 1.58-7.39-.01-10.99C16.98 3.64 14.73 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 13c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"/>
+            </svg>
           </div>
           <div>
             <h1 className="text-lg font-bold">Nairobi College</h1>
           </div>
         </Link>
 
-        {/* Top right section - This area should be clear of "Nairobi online college" or "AUSTRALIA" */}
+        {/* Top right section - This area should be clear */}
         <div className="text-sm">
           {/* Intentionally empty. Space for future user-specific links. */}
         </div>
