@@ -39,7 +39,7 @@ export default function HomePage() {
             Welcome to Nairobi Online College
           </h1>
           <p className="text-xl md:text-2xl text-foreground mb-10 max-w-3xl mx-auto">
-            Reimagining education, inspired by the pioneering spirit and foundational principles of Nairobi College of East Palo Alto.
+            Reimagining education, inspired by the pioneering spirit and foundational principles of Nairobi College of East Palo Alto (1969) – a community-built institution dedicated to relevant learning and empowerment.
           </p>
           <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/courses">
@@ -80,17 +80,17 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-headline font-semibold text-primary mb-6">
-                Our Heritage: Nairobi College
+                Our Heritage: The Original Nairobi College
               </h2>
               <p className="text-lg text-foreground mb-4 leading-relaxed">
-                Nairobi Online College carries forward the legacy of the original Nairobi College, a pioneering two-year community college founded in East Palo Alto, California. Its innovative approach to education, curriculum, and community engagement forms the bedrock of our mission. Our goal is to provide relevant, empowering education, particularly for students seeking to advance their careers or transfer to four-year institutions.
+                Nairobi Online College proudly carries forward the legacy of the original Nairobi College (founded 1969 in East Palo Alto, California). This remarkable institution was created by students and community members to provide education directly relevant to their lives and challenges. It operated as a "college without walls," holding classes in homes, churches, and community centers, deeply intertwined with the fabric of East Palo Alto.
               </p>
               <p className="text-lg text-foreground mb-6 leading-relaxed">
-                We embrace the spirit of community involvement, cultural identity, and the "College Without Walls" concept, offering flexible, practical, and problem-solving-oriented learning experiences for a new generation.
+                Its curriculum uniquely blended traditional subjects with innovative offerings like Black music and Swahili, requiring students to engage in daily community work. This philosophy of relevant, empowering, and community-centered education is the bedrock of our mission today.
               </p>
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/about">
-                  Learn More About Us
+                  Learn More About Our Legacy
                 </Link>
               </Button>
             </div>
@@ -101,7 +101,7 @@ export default function HomePage() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-md object-cover"
-                data-ai-hint="college students library"
+                data-ai-hint="community learning vintage"
               />
             </div>
           </div>
@@ -110,3 +110,5 @@ export default function HomePage() {
     </PageWrapper>
   );
 }
+
+    
