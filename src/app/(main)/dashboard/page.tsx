@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
-import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked } from 'lucide-react';
+import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History } from 'lucide-react';
 import { Input } from '@/components/ui/input'; 
 
 // Helper component for sidebar sections
@@ -62,6 +62,7 @@ export default function DashboardPage() {
         {/* Left Sidebar: Tools */}
         <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="Tools" defaultOpen={true}>
+            <SidebarLink href="/dashboard/history" icon={<History size={14}/>}>History</SidebarLink>
             <SidebarLink href="/dashboard/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
             <SidebarLink href="/dashboard/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="/dashboard/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
