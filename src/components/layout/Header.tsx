@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { School, Search, Bell } from 'lucide-react'; // ChevronDown for dropdowns, Bell for notifications
+import { School, Search, Bell } from 'lucide-react';
 
 export default function Header() {
   // Placeholder course tabs, in a real app this would be dynamic
@@ -12,9 +12,8 @@ export default function Header() {
   return (
     <div className="bg-uq-header-bg text-primary-foreground">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-        {/* Logo Section */}
+        {/* Logo Section - Main title should be "Nairobi College" */}
         <Link href="/dashboard" className="flex items-center gap-2">
-          {/* Using School icon as a placeholder for UQ logo style */}
           <div className="bg-white p-1 rounded-sm">
             <School size={28} className="text-uq-header-bg" />
           </div>
@@ -23,9 +22,9 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Placeholder for top right links if any (e.g., user profile) */}
+        {/* Top right section - This area should be clear of "Nairobi online college" or "AUSTRALIA" */}
         <div className="text-sm">
-          {/* User Name / Profile link could go here */}
+          {/* Intentionally empty. Space for future user-specific links. */}
         </div>
       </div>
       
@@ -33,7 +32,7 @@ export default function Header() {
       <nav className="bg-uq-nav-bg">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}> {/* Assuming Welcome is active */}
+            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
               Welcome
             </Link>
             {courseTabs.map(course => (
@@ -41,9 +40,9 @@ export default function Header() {
                 {course}
               </Link>
             ))}
-            {/* Replaced text link with Bell icon button */}
+            {/* Bell icon for notifications */}
             <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-accent data-[active=true]:text-accent-foreground">
-              <Link href="/dashboard/notifications"> {/* Placeholder link for notifications */}
+              <Link href="/dashboard/notifications"> 
                 <Bell size={18} />
                 <span className="sr-only">Notifications</span>
               </Link>
