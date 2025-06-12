@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
 import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen } from 'lucide-react';
+import { Input } from '@/components/ui/input'; // Added import
 
 // Helper component for sidebar sections
 const SidebarModule = ({ title, children, defaultOpen = false }: { title: string, children: React.ReactNode, defaultOpen?: boolean }) => (
@@ -57,9 +58,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Content Area with 3 columns */}
-      <div className="grid grid-cols-1 md:grid-cols-custom-3-col gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
         {/* Left Sidebar: Tools */}
-        <aside className="space-y-0 col-span-1">
+        <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="Tools" defaultOpen={true}>
             <SidebarLink href="/dashboard/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
             <SidebarLink href="/dashboard/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
@@ -83,7 +84,7 @@ export default function DashboardPage() {
         </aside>
 
         {/* Center Panel: Course List / Welcome Content */}
-        <main className="col-span-1 md:col-span-1-5"> {/* Adjusted span for 3 column layout */}
+        <main className="md:col-span-2"> 
           {/* Tab Navigation */}
           <div className="mb-0 border-b border-border flex">
             <button 
@@ -150,7 +151,7 @@ export default function DashboardPage() {
         </main>
 
         {/* Right Sidebar: My Organisations, etc. */}
-        <aside className="space-y-0 col-span-1">
+        <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="My Organisations" defaultOpen={true}>
             <SidebarLink href="#" icon={<Briefcase size={14}/>}>Student Council</SidebarLink>
             <SidebarLink href="#" icon={<Briefcase size={14}/>}>Coding Club</SidebarLink>
@@ -172,84 +173,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-// Custom grid template for 3 columns:
-// Left sidebar (flex-basis: 200px, can grow slightly),
-// Center content (takes up remaining space),
-// Right sidebar (flex-basis: 200px, can grow slightly)
-// This definition should be in tailwind.config.js or a global style if it becomes complex.
-// For now, using a simpler grid approach with Tailwind's default grid.
-// md:grid-cols-[220px_1fr_220px] might be better but Tailwind JIT might need explicit definition.
-// Using col-span-1 for sidebars and col-span-1-5 (custom if needed) or col-span-2/3 for main content in a 4 or 5 part grid.
-// For simplicity, using a 3-column grid for md and above, with center being wider.
-// Tailwind doesn't have `grid-cols-custom-3-col` by default. Let's use `md:grid-cols-4` and assign spans.
-// Left: md:col-span-1, Center: md:col-span-2, Right: md:col-span-1
-// This should be adapted in tailwind.config.ts for cleaner use:
-// theme: { extend: { gridTemplateColumns: { 'custom-3-col': '250px 1fr 250px' } } }
-// For now, I'll update the class to md:grid-cols-5 and use spans: left:1, middle:3, right:1
-// Let's use `md:grid-cols-[minmax(200px,25%)_1fr_minmax(200px,25%)]` for better control
-// This is not directly possible in className, would need to be in CSS or tailwind config.
-// For now, I'll stick to a simpler column definition and adjust spans.
-// Using CSS for this specific layout if Tailwind is too restrictive for this exact style:
-// style={{ gridTemplateColumns: 'minmax(200px, 1fr) minmax(300px, 2fr) minmax(200px, 1fr)' }} on the grid div
-// For now, a simple col-span approach on a 4-col grid:
-// Left: col-span-1, Center: col-span-2, Right: col-span-1 for md.
-// Better: grid-cols-1 md:grid-cols-[280px_1fr_280px] in tailwind.config.ts
-
-// Re-evaluating: using a simpler grid for now
-// md:grid-cols-4. left: col-span-1, middle: col-span-2, right: col-span-1.
-// Updated to md:grid-cols-custom-3-col. This class is not standard.
-// Will try with standard Tailwind: md:grid-cols-12, left: md:col-span-3, center: md:col-span-6, right: md:col-span-3
-
-// Simpler: Left: md:w-1/4, Center: md:w-1/2, Right: md:w-1/4 if using flex.
-// With grid, best to define template columns.
-// Let's try `md:grid-cols-[25%_50%_25%]`. This is not standard Tailwind.
-// Final attempt for this pass: `md:grid-cols-5` with spans `md:col-span-1`, `md:col-span-3`, `md:col-span-1`.
-// This needs to be done via tailwind config for `grid-cols-custom-3-col`.
-// I will use `md:grid-cols-4` and spans: left: `md:col-span-1`, middle: `md:col-span-2`, right: `md:col-span-1`.
-// The provided image looks more like left: ~25-30%, middle: ~40-50%, right: ~25-30%.
-// Let's use grid-cols-1 md:grid-cols-12, then md:col-span-3, md:col-span-6, md:col-span-3. This totals 12.
-// The provided image doesn't show a full width container, so the parent div for this grid would be within the main container.
-// The parent `div.bg-uq-content-bg` already has `p-3`. The grid is inside this.
-// `grid-cols-1 md:grid-cols-custom-3-col` --> in `tailwind.config.ts` under `theme.extend.gridTemplateColumns`:
-// ` 'custom-3-col': 'minmax(220px, 1fr) 2fr minmax(220px, 1fr)', `
-// For now, this class won't work without the config. I'll use a simpler approximation.
-// `grid-cols-1 lg:grid-cols-3` with `lg:col-span-1` for sidebars and `lg:col-span-1` for center (if equally weighted).
-// Or `lg:grid-cols-4` with sidebars `lg:col-span-1` and center `lg:col-span-2`. This seems more appropriate.
-// Corrected to `grid-cols-1 md:grid-cols-4 gap-3` and then use `md:col-span-1` and `md:col-span-2`
-// In the div: `className="grid grid-cols-1 md:grid-cols-4 gap-3"`
-// Left aside: `className="md:col-span-1"`
-// Main: `className="md:col-span-2"`
-// Right aside: `className="md:col-span-1"`
-// This setup should work.
-const customGridClass = "grid-cols-1 md:grid-cols-[280px_1fr_280px]"; // Needs config in tailwind.config.ts
-// For now, using this approximation:
-// <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-// <aside className="md:col-span-3 ...">
-// <main className="md:col-span-6 ...">
-// <aside className="md:col-span-3 ...">
-
-// Reverted to simpler grid structure for now as custom JIT classes can be tricky.
-// Using <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-// <aside className="lg:col-span-1 ..."> Tools </aside>
-// <main className="lg:col-span-2 ..."> Content </main>
-// <aside className="lg:col-span-1 ..."> Organisations </aside>
-// This will be used.
-// The main content area: `<main className="lg:col-span-2">`
-// Sidebars: `<aside className="lg:col-span-1">`
-// Parent: `<div className="grid grid-cols-1 lg:grid-cols-4 gap-4">`
-// Looks like the image has a tighter gap, so `gap-3`.
-// Corrected grid:
-// Parent: <div className="grid grid-cols-1 xl:grid-cols-dashboard-layout gap-3"> (dashboard-layout: 280px 1fr 280px)
-// For now, simpler:
-// <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
-//  <aside className="lg:col-span-1">...</aside> /* Tools */
-//  <main className="lg:col-span-3">...</main> /* Course List / Welcome */
-//  <aside className="lg:col-span-1">...</aside> /* My Organisations */
-// This should provide a reasonable approximation.
-// The actual class `md:grid-cols-custom-3-col` will not work without tailwind config changes, I am removing it for now and using a standard responsive grid approach.
-// `<div className="grid grid-cols-1 md:grid-cols-4 gap-3">`
-//   `<aside className="md:col-span-1">...</aside>`
-//   `<main className="md:col-span-2">...</main>`
-//   `<aside className="md:col-span-1">...</aside>`
-// This has been implemented.
