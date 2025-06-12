@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import PageWrapper from '@/components/layout/PageWrapper';
@@ -38,7 +39,7 @@ export default function HomePage() {
             Welcome to Nairobi Online College
           </h1>
           <p className="text-xl md:text-2xl text-foreground mb-10 max-w-3xl mx-auto">
-            Reimagining education, inspired by the pioneering spirit of Nairobi College of East Palo Alto.
+            Reimagining education, inspired by the pioneering spirit and foundational principles of Nairobi College of East Palo Alto.
           </p>
           <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/courses">
@@ -82,7 +83,7 @@ export default function HomePage() {
                 Our Heritage: Nairobi College
               </h2>
               <p className="text-lg text-foreground mb-4 leading-relaxed">
-                Nairobi Online College carries forward the legacy of the original Nairobi College, a pioneering two-year community college founded in East Palo Alto, California. Our mission is to provide relevant, empowering education, particularly for students seeking to advance their careers or transfer to four-year institutions.
+                Nairobi Online College carries forward the legacy of the original Nairobi College, a pioneering two-year community college founded in East Palo Alto, California. Its innovative approach to education, curriculum, and community engagement forms the bedrock of our mission. Our goal is to provide relevant, empowering education, particularly for students seeking to advance their careers or transfer to four-year institutions.
               </p>
               <p className="text-lg text-foreground mb-6 leading-relaxed">
                 We embrace the spirit of community involvement, cultural identity, and the "College Without Walls" concept, offering flexible, practical, and problem-solving-oriented learning experiences for a new generation.
