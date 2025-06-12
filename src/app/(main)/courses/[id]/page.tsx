@@ -1,137 +1,184 @@
+
 import Link from 'next/link';
-import Image from 'next/image';
-import PageWrapper from '@/components/layout/PageWrapper';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { courses, type Course } from '@/lib/data/courses';
 import { getFacultyByIds, type FacultyMember } from '@/lib/data/faculty';
-import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, UserCircle, CalendarDays, BookCheck } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight, Play, Search, FileText, Pause, Edit3, BookOpen, UserCircle, CalendarDays, BookCheck } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 export async function generateStaticParams() {
-  return courses.map((course) => ({
+  // Exclude comp3400 as it has its own dedicated page
+  return courses.filter(course => course.id !== 'comp3400').map((course) => ({
     id: course.id,
   }));
 }
+
+interface CoursePlayerModule {
+  id: string;
+  title: string;
+  icon: React.ElementType;
+  isActive?: boolean;
+}
+
+// Placeholder modules - adapt as needed or make dynamic if course data supports it
+const modules: CoursePlayerModule[] = [
+  { id: 'intro', title: 'Introduction', icon: FileText, isActive: true }, // Assume intro is active by default
+  { id: 'm1', title: 'Module 1', icon: FileText },
+  { id: 'm2', title: 'Module 2', icon: FileText },
+  { id: 'm3', title: 'Module 3', icon: FileText },
+  { id: 'conclusion', title: 'Conclusion & Next Steps', icon: Pause },
+  { id: 'assessment', title: 'Self-Assessment (Optional)', icon: Edit3 },
+];
 
 export default function CourseDetailPage({ params }: { params: { id: string } }) {
   const course = courses.find((c) => c.id === params.id);
 
   if (!course) {
     return (
-      <PageWrapper title="Course Not Found">
-        <p>The course you are looking for does not exist.</p>
-        <Button asChild variant="link">
-          <Link href="/courses">
-            <ChevronLeft className="mr-2 h-4 w-4" /> Back to Courses
-          </Link>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-course-page-bg text-course-text-primary p-4">
+        <h1 className="text-2xl mb-4">Course Not Found</h1>
+        <p className="mb-4">The course you are looking for does not exist.</p>
+        <Button asChild className="bg-course-green-button-bg text-course-green-button-foreground hover:bg-course-green-button-hover-bg">
+          <Link href="/courses">Back to Course Catalog</Link>
         </Button>
-      </PageWrapper>
+      </div>
     );
   }
 
   const courseFaculty = getFacultyByIds(course.instructorIds);
+  const instructorNames = courseFaculty.map(f => f.name).join(', ') || 'TBA';
 
   return (
-    <PageWrapper>
-      <div className="mb-8">
-        <Button asChild variant="outline" className="mb-6">
-          <Link href="/courses">
-            <ChevronLeft className="mr-2 h-4 w-4" /> Back to Courses
-          </Link>
-        </Button>
-        <Badge variant="secondary" className="mb-2">{course.department}</Badge>
-        <h1 className="text-4xl font-headline font-bold text-primary mb-3">{course.title}</h1>
-        <p className="text-lg text-muted-foreground">{course.shortDescription}</p>
-      </div>
+    <div className="flex flex-col min-h-screen bg-course-page-bg text-course-text-primary">
+      {/* Internal Page Header */}
+      <header className="bg-course-header-bg p-3 flex justify-between items-center border-b border-course-border-color shadow-md">
+        <div className="flex items-center gap-1">
+          <Button variant="ghost" className="text-course-text-secondary hover:text-course-text-primary hover:bg-course-active-item-bg p-2 h-auto text-sm">Account</Button>
+          <Button variant="ghost" className="text-course-text-secondary hover:text-course-text-primary hover:bg-course-active-item-bg p-2 h-auto text-sm">Home</Button>
+          <Button variant="ghost" className="text-course-text-primary bg-course-active-item-bg p-2 h-auto text-sm">Outline</Button>
+        </div>
+        <div className="text-sm font-semibold text-course-text-secondary truncate px-2" title={course.title}>
+          {course.title.toUpperCase()} - OVERVIEW
+        </div>
+        <div className="flex items-center gap-1">
+          <Button variant="ghost" size="icon" className="text-course-text-tertiary hover:text-course-text-primary hover:bg-course-active-item-bg">
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="icon" className="text-course-green-button-bg hover:text-course-green-button-foreground hover:bg-course-green-button-hover-bg">
+            <Play className="h-5 w-5 fill-current" />
+          </Button>
+        </div>
+      </header>
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>Course Overview</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Image
-                src={course.image}
-                alt={course.title}
-                width={800}
-                height={400}
-                className="rounded-md mb-6 object-cover w-full max-h-96"
-                data-ai-hint="classroom lecture notes"
-              />
-              <p className="text-foreground leading-relaxed">{course.longDescription}</p>
-            </CardContent>
-          </Card>
+      {/* Main Content Area with Sidebar */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left Sidebar */}
+        <aside className="w-72 bg-course-sidebar-bg p-4 space-y-4 border-r border-course-border-color overflow-y-auto shrink-0">
+          <div className="flex items-center gap-2 text-course-text-secondary p-2 border border-course-border-color rounded-md">
+            <Search className="h-4 w-4" />
+            <span>Search Modules...</span>
+          </div>
+          <nav>
+            <ul className="space-y-1">
+              {modules.map(mod => (
+                <li key={mod.id}>
+                  <Link href="#" className={`flex items-center gap-3 p-2.5 rounded-md text-sm hover:bg-course-active-item-bg transition-colors ${mod.isActive ? 'bg-course-active-item-bg text-course-text-primary font-medium' : 'text-course-text-secondary'}`}>
+                    <mod.icon className={`h-5 w-5 ${mod.isActive ? 'text-course-green-button-bg': ''}`} />
+                    <span>{mod.title}</span>
+                     {mod.id !== 'intro' && mod.id !== 'conclusion' && mod.id !== 'assessment' && (
+                        <ChevronRight className="h-4 w-4 ml-auto text-course-text-tertiary" />
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+           <Separator className="border-course-border-color my-4"/>
+            <Button asChild variant="outline" className="w-full text-course-text-secondary border-course-border-color hover:bg-course-active-item-bg hover:text-course-text-primary">
+                <Link href="/courses">
+                    <ChevronLeft className="mr-2 h-4 w-4" /> Back to Catalog
+                </Link>
+            </Button>
+        </aside>
 
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>Learning Outcomes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-foreground">
+        {/* Right Content Area */}
+        <main className="flex-1 p-6 md:p-8 bg-course-content-area-bg overflow-y-auto">
+          <Badge variant="secondary" className="mb-2 bg-course-active-item-bg text-course-text-secondary border-course-border-color">{course.department}</Badge>
+          <h1 className="text-3xl font-bold text-course-text-primary mb-1">{course.title}</h1>
+          <p className="text-course-text-secondary mb-6">{course.shortDescription}</p>
+          
+          <div className="bg-course-green-info-bg text-course-green-info-foreground p-6 rounded-md mb-8 shadow-lg">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">Course Details</h2>
+              <BookOpen className="h-8 w-8 opacity-70" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div>
+                <p className="text-2xl font-bold">{instructorNames}</p>
+                <p className="text-sm opacity-80">Instructor(s)</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold">Online</p> {/* Schedule placeholder */}
+                <p className="text-sm opacity-80">Schedule</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold">{course.creditHours}</p>
+                <p className="text-sm opacity-80">Credit Hours</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-8 flex justify-end items-center">
+            {/* <Button variant="outline" className="text-course-text-secondary border-course-border-color hover:bg-course-active-item-bg hover:text-course-text-primary">
+              <ChevronLeft className="mr-2 h-4 w-4" /> Back to Outline
+            </Button> */}
+            <Button className="bg-course-green-button-bg text-course-green-button-foreground hover:bg-course-green-button-hover-bg">
+              Next Module <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+
+          <div className="space-y-6">
+            <section className="bg-course-green-item-bg text-course-green-item-foreground p-5 rounded-md shadow">
+              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><FileText size={20}/> Detailed Description</h3>
+              <p className="text-sm leading-relaxed">{course.longDescription}</p>
+            </section>
+
+            <section className="bg-course-green-item-bg text-course-green-item-foreground p-5 rounded-md shadow">
+              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><BookCheck size={20}/> Learning Outcomes</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm">
                 {course.learningOutcomes.map((outcome, index) => (
                   <li key={index}>{outcome}</li>
                 ))}
               </ul>
-            </CardContent>
-          </Card>
-
-          {course.prerequisites && course.prerequisites.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Prerequisites</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-foreground">
-                  {course.prerequisites.map((prereq, index) => (
+            </section>
+            
+            {course.prerequisites && course.prerequisites.length > 0 && (
+              <section className="bg-course-green-item-bg text-course-green-item-foreground p-5 rounded-md shadow">
+                <h3 className="text-lg font-semibold mb-2 flex items-center gap-2"><Edit3 size={20}/> Prerequisites</h3>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                    {course.prerequisites.map((prereq, index) => (
                     <li key={index}>{prereq}</li>
-                  ))}
+                    ))}
                 </ul>
-              </CardContent>
-            </Card>
-          )}
-        </div>
+              </section>
+            )}
 
-        <div className="lg:col-span-1">
-          <Card className="sticky top-24">
-            <CardHeader>
-              <CardTitle className="text-xl">Course Details</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center gap-2">
-                <BookCheck className="h-5 w-5 text-primary" />
-                <span><strong>Credit Hours:</strong> {course.creditHours}</span>
-              </div>
-              <Separator />
-              <div>
-                <h3 className="text-md font-semibold mb-2 text-primary flex items-center gap-2">
-                  <UserCircle className="h-5 w-5" />
-                  Instructors
-                </h3>
-                {courseFaculty.length > 0 ? (
-                  courseFaculty.map((faculty: FacultyMember) => (
-                    <Link key={faculty.id} href={`/faculty/${faculty.id}`} className="block hover:underline text-foreground mb-1">
-                      {faculty.name}
-                    </Link>
-                  ))
-                ) : (
-                  <p className="text-muted-foreground">To be announced</p>
-                )}
-              </div>
-              <Separator />
-               {/* Placeholder for enrollment / payment */}
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-4">
-                Enroll Now (Placeholder)
-              </Button>
-               <Button variant="outline" className="w-full mt-2">
-                Add to Wishlist
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+            <Separator className="border-course-border-color my-6"/>
+            
+            <div className="flex gap-4">
+                 <Button className="flex-1 bg-course-green-button-bg text-course-green-button-foreground hover:bg-course-green-button-hover-bg py-3 text-base">
+                    Enroll Now (Placeholder)
+                </Button>
+                <Button variant="outline" className="flex-1 text-course-text-secondary border-course-border-color hover:bg-course-active-item-bg hover:text-course-text-primary py-3 text-base">
+                    Add to Wishlist
+                </Button>
+            </div>
+          </div>
+        </main>
       </div>
-    </PageWrapper>
+    </div>
   );
 }
+
+    
