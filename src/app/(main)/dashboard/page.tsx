@@ -63,6 +63,7 @@ export default function DashboardPage() {
         <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="Tools" defaultOpen={true}>
             <SidebarLink href="/dashboard/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
+            <SidebarLink href="/dashboard/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="/dashboard/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
             <SidebarLink href="/dashboard/tasks" icon={<CheckSquare size={14}/>}>Tasks</SidebarLink>
             <SidebarLink href="/dashboard/marks" icon={<BarChart2 size={14}/>}>My Marks</SidebarLink>
@@ -76,10 +77,6 @@ export default function DashboardPage() {
                 <Input type="text" placeholder="Search courses..." className="h-7 text-xs mb-1 w-full" />
                 <Button variant="secondary" size="sm" className="h-7 text-xs w-full bg-gray-200 text-gray-800 hover:bg-gray-300">Go</Button>
              </div>
-          </SidebarModule>
-          <SidebarModule title="External Tools">
-            <SidebarLink href="/dashboard/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
-            <SidebarLink href="#" icon={<ExternalLink size={14}/>} target="_blank">Research Databases</SidebarLink>
           </SidebarModule>
         </aside>
 
