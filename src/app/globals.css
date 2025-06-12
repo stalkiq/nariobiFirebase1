@@ -42,8 +42,8 @@ body {
     --radius: 0.1rem; /* Sharper corners */
 
     /* UQ Portal Theme - Light Brown and Black */
-    --uq-header-bg: 0 0% 8%; /* Black header */
-    --uq-nav-bg: 0 0% 12%; /* Dark Grey nav tabs */
+    --uq-header-bg: 30 30% 50%; /* Accent brown for header */
+    --uq-nav-bg: 30 30% 50%; /* Accent brown for nav tabs, same as header for unified look */
     --uq-module-header-bg: 30 30% 50%; /* Accent brown for module headers */
     --uq-module-header-text: 35 25% 95%; /* Light text on module headers */
     --uq-sidebar-bg: 35 20% 85%; /* Slightly darker light brown for sidebars */
@@ -103,8 +103,8 @@ body {
     --ring: 30 40% 60%;
 
     /* UQ Portal Theme - Dark Mode */
-    --uq-header-bg: 0 0% 5%; 
-    --uq-nav-bg: 0 0% 8%; 
+    --uq-header-bg: 30 40% 60%; /* Dark Accent brown for header */
+    --uq-nav-bg: 30 40% 60%; /* Dark Accent brown for nav tabs, same as header */
     --uq-module-header-bg: 30 40% 55%; /* Accent brown for module headers in dark */
     --uq-module-header-text: 35 25% 95%;
     --uq-sidebar-bg: 25 10% 18%; 
