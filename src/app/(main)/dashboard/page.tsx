@@ -28,9 +28,9 @@ const SidebarModule = ({ title, children, defaultOpen = false }: { title: string
   </Card>
 );
 
-const SidebarLink = ({ href, children, icon }: { href: string, children: React.ReactNode, icon?: React.ReactNode }) => (
+const SidebarLink = ({ href, children, icon, target }: { href: string, children: React.ReactNode, icon?: React.ReactNode, target?: string }) => (
   <li className="border-b border-border last:border-b-0">
-    <Link href={href} className="flex items-center gap-2 px-3 py-1.5 hover:bg-secondary">
+    <Link href={href} className="flex items-center gap-2 px-3 py-1.5 hover:bg-secondary" target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
       {icon}
       {children}
     </Link>
@@ -78,8 +78,8 @@ export default function DashboardPage() {
              </div>
           </SidebarModule>
           <SidebarModule title="External Tools">
-            <SidebarLink href="#" icon={<ExternalLink size={14}/>}>Library Access</SidebarLink>
-            <SidebarLink href="#" icon={<ExternalLink size={14}/>}>Research Databases</SidebarLink>
+            <SidebarLink href="https://www.google.com/search?q=public+libraries+San+Mateo+County+Santa+Clara+County" icon={<ExternalLink size={14}/>} target="_blank">Library Access</SidebarLink>
+            <SidebarLink href="#" icon={<ExternalLink size={14}/>} target="_blank">Research Databases</SidebarLink>
           </SidebarModule>
         </aside>
 
@@ -105,7 +105,7 @@ export default function DashboardPage() {
             <div className="py-3">
               <h2 className="text-xl font-semibold text-primary mb-2">Welcome to Nairobi Online College</h2>
               <p className="text-sm text-foreground mb-3 leading-relaxed">
-                Nairobi Online College, inspired by the original Nairobi College founded in 1969, is not in East Africa, but in East Palo Alto, California. It was a community-run college for "people of color," dedicated to making education "relevant to the ghetto community." This pioneering institution was a "college without walls," deeply embedded in its surroundings, offering courses addressing local problems alongside traditional studies. Students and teachers pitched in: "Nails are banged into walls; desks painted; screens must be installed." This hands-on, community-built ethos is a core part of our heritage. A key component of this philosophy is that each student is assigned four hours of work in a community organization to graduate, ensuring learning is directly applied and benefits the community.
+                Nairobi Online College, inspired by the original Nairobi College founded in 1969, is not in East Africa, but in East Palo Alto, California. It was a community-run college for "people of color," dedicated to making education "relevant to the ghetto community." This pioneering institution was a "college without walls," deeply embedded in its surroundings, offering courses addressing local problems alongside traditional studies. Students and teachers pitch in: "Nails are banged into walls; desks painted; screens must be installed." This hands-on, community-built ethos is a core part of our heritage. A key component of this philosophy is that each student is assigned four hours of work in a community organization to graduate, ensuring learning is directly applied and benefits the community.
               </p>
                <blockquote className="border-l-2 border-accent pl-2 text-xs italic text-muted-foreground my-3">
                 "The college shows that rather than fight, we can create... It shows that we can do things for ourselves and gives us a sense of group pride." - Pastor James Branch (on the original Nairobi College)
