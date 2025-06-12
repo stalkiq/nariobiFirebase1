@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { School, Search, ChevronDown } from 'lucide-react'; // ChevronDown for dropdowns
+import { School, Search, Bell } from 'lucide-react'; // ChevronDown for dropdowns, Bell for notifications
 
 export default function Header() {
   // Placeholder course tabs, in a real app this would be dynamic
-  const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; // Added CS101, ENG202, BUS305 as examples
+  const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; 
 
   return (
     <div className="bg-uq-header-bg text-primary-foreground">
@@ -42,9 +42,13 @@ export default function Header() {
                 {course}
               </Link>
             ))}
-            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 rounded-t-sm">
-              Notifications Dashboard
-            </Link>
+            {/* Replaced text link with Bell icon button */}
+            <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-accent data-[active=true]:text-accent-foreground">
+              <Link href="/dashboard/notifications"> {/* Placeholder link for notifications */}
+                <Bell size={18} />
+                <span className="sr-only">Notifications</span>
+              </Link>
+            </Button>
           </div>
 
           {/* Course Search */}
