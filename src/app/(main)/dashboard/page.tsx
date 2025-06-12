@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
-import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library } from 'lucide-react';
+import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked } from 'lucide-react';
 import { Input } from '@/components/ui/input'; 
 
 // Helper component for sidebar sections
@@ -77,6 +77,10 @@ export default function DashboardPage() {
                 <Input type="text" placeholder="Search courses..." className="h-7 text-xs mb-1 w-full" />
                 <Button variant="secondary" size="sm" className="h-7 text-xs w-full bg-gray-200 text-gray-800 hover:bg-gray-300">Go</Button>
              </div>
+          </SidebarModule>
+          <SidebarModule title="External Tools">
+            <SidebarLink href="https://scholar.google.com" target="_blank" icon={<BookMarked size={14}/>}>Research Databases</SidebarLink>
+            {/* Add other external tool links here */}
           </SidebarModule>
         </aside>
 
@@ -167,3 +171,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    
