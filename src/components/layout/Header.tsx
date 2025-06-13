@@ -11,19 +11,17 @@ export default function Header() {
   return (
     <div className="bg-uq-header-bg text-primary-foreground">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-        <Link href="/dashboard" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           {/* New SVG logo. Removed the wrapping div with bg-white. */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="32" // Adjusted size slightly
+            width="32" 
             height="32"
-            viewBox="0 0 100 100" // Adjusted viewBox for more detail
-            fill="currentColor" // Inherits text color
+            viewBox="0 0 100 100" 
+            fill="currentColor" 
             aria-hidden="true"
           >
-            {/* Simplified silhouette attempting to capture the essence of the image */}
-            <path d="M50 2C27.9 2 10 20.2 10 42.6c0 10.1 4.2 19.3 11.1 26.1-1.5 3.3-6.5 13.5-6.5 13.5s3.9-1.9 8.3-4.9c3.9 1.5 8.2 2.3 12.6 2.3 22.1 0 40-18.2 40-40.6S72.1 2 50 2zm0 10c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm18.5 45.2c-2.8-1.8-6.1-2.9-9.7-3.3-0.8 4.2-2.3 8.1-4.4 11.5 2.6 0.9 5.3 1.4 8.1 1.4 3.7 0 7.3-0.7 10.6-2.1 0.1-0.1 0.2-0.2 0.2-0.3 0-4-3.3-7.2-4.8-7.2zM21.5 57.2c-1.5 0-4.8 3.2-4.8 7.2 0 0.1 0.1 0.2 0.2 0.3 3.3 1.4 6.9 2.1 10.6 2.1 2.8 0 5.5-0.5 8.1-1.4-2.1-3.4-3.6-7.3-4.4-11.5-3.6 0.4-6.9 1.5-9.7 3.3z"/>
-            {/* Afro part - more abstract representation */}
+            <path d="M50 25 C 40 25 35 30 30 40 S 25 60 30 70 S 40 85 50 85 S 70 80 70 70 S 75 50 70 40 S 60 25 50 25 Z M 50 10 C 30 10 20 30 20 50 S 30 90 50 90 S 80 70 80 50 S 70 10 50 10 Z M 50 15 C 35 15 25 35 25 50 S 35 85 50 85 S 75 65 75 50 S 65 15 50 15 Z" />
             <path d="M50,40 C35,40 30,25 50,15 C70,25 65,40 50,40 M50,15 C40,5 60,5 50,15 M50,40 Q40,55 30,50 C20,45 25,65 40,70 C55,75 60,60 50,55 Q60,55 70,50 C80,45 75,65 60,70 C45,75 40,60 50,40 Z"/>
           </svg>
           <div>
@@ -39,7 +37,7 @@ export default function Header() {
       <nav className="bg-uq-nav-bg">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Link href="/dashboard" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
+            <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
               Welcome
             </Link>
             {courseTabs.map(course => (
@@ -48,7 +46,7 @@ export default function Header() {
               </Link>
             ))}
             <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-accent data-[active=true]:text-accent-foreground">
-              <Link href="/dashboard/notifications"> 
+              <Link href="/"> 
                 <Bell size={18} />
                 <span className="sr-only">Notifications</span>
               </Link>

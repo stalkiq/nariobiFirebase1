@@ -13,7 +13,7 @@ export default function AboutPage() {
       description="Continuing a legacy of transformative education, deeply rooted in the innovative spirit and community focus of the original Nairobi College of East Palo Alto."
     >
       <Button asChild variant="outline" className="mb-6">
-        <Link href="/dashboard">
+        <Link href="/">
           <ChevronLeft className="mr-2 h-4 w-4" /> Back to Dashboard
         </Link>
       </Button>
