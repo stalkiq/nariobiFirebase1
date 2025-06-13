@@ -67,7 +67,7 @@ export default function DashboardPage() {
         {/* Left Sidebar: Tools */}
         <aside className="md:col-span-1 space-y-0">
           <SidebarModule title="Tools" defaultOpen={true}>
-            <SidebarLink href="/history" centered anchorClassName="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground">History</SidebarLink>
+            <SidebarLink href="/history" centered anchorClassName="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground rounded-[var(--radius)] transition-all duration-150 ease-in-out">History</SidebarLink>
             <SidebarLink href="/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
             <SidebarLink href="/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
