@@ -16,7 +16,7 @@ export default function Header() {
       repeating-linear-gradient(
         45deg,
         transparent 0px, transparent 19px, hsl(120, 60%, 25%) 19px, hsl(120, 60%, 25%) 20px, /* Dark Green line */
-        transparent 20px, transparent 39px, hsl(200, 70%, 50%) 39px, hsl(200, 70%, 50%) 40px, /* Gold line (using a blueish gold for visibility) */
+        transparent 20px, transparent 39px, hsl(50, 80%, 50%) 39px, hsl(50, 80%, 50%) 40px, /* Gold line */
         transparent 40px, transparent 59px, hsl(0, 70%, 50%) 59px, hsl(0, 70%, 50%) 60px,  /* Red line */
         transparent 60px, transparent 79px, hsl(0, 0%, 10%) 79px, hsl(0, 0%, 10%) 80px    /* Black line */
       )
@@ -29,8 +29,9 @@ export default function Header() {
     <div style={headerPatternStyle}>
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          {/* Apply new styles for "Nairobi College" text */}
           <div>
-            <h1 className="text-lg font-bold text-primary">Nairobi College</h1>
+            <h1 className="text-4xl font-black text-primary uppercase tracking-widest">Nairobi College</h1>
           </div>
         </Link>
 
@@ -72,8 +73,6 @@ export default function Header() {
 
           <div className="md:hidden flex-1"> {/* This empty div ensures search doesn't jump if it were visible and tabs weren't */}
           </div>
-
-          {/* Search bar removed */}
         </div>
       </nav>
     </div>
