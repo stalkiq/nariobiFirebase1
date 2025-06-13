@@ -8,12 +8,36 @@ import { Bell } from 'lucide-react';
 export default function Header() {
   const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; 
 
+  const headerPatternStyle = {
+    background: `repeating-linear-gradient(
+      135deg,
+      hsl(0, 0%, 8%),
+      hsl(0, 0%, 8%) 10px,
+      hsl(45, 90%, 55%) 10px,
+      hsl(45, 90%, 55%) 15px,
+      hsl(0, 70%, 50%) 15px,
+      hsl(0, 70%, 50%) 25px,
+      hsl(45, 90%, 55%) 25px,
+      hsl(45, 90%, 55%) 30px,
+      hsl(0, 0%, 8%) 30px,
+      hsl(0, 0%, 8%) 40px,
+      hsl(120, 50%, 40%) 40px,
+      hsl(120, 50%, 40%) 50px
+    )`,
+    backgroundSize: '50px 50px', // Controls the size of the repeating unit
+  };
+
+  const collegeNameStyle = {
+    color: 'white',
+    textShadow: '0px 1px 3px rgba(0, 0, 0, 0.8)', // Subtle shadow for readability
+  };
+
   return (
-    <div className="bg-uq-header-bg text-primary-foreground">
+    <div style={headerPatternStyle}>
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div>
-            <h1 className="text-lg font-bold">Nairobi College</h1>
+            <h1 className="text-lg font-bold" style={collegeNameStyle}>Nairobi College</h1>
           </div>
         </Link>
 
@@ -26,7 +50,7 @@ export default function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Tabs and Bell Icon - hidden on mobile, shown on md and up */}
           <div className="hidden md:flex items-center">
-            <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
+            <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-black/20 rounded-t-sm" data-active={true}>
               Home
             </Link>
             {courseTabs.map(course => (
@@ -34,7 +58,7 @@ export default function Header() {
                 {course}
               </Link>
             ))}
-            <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-accent data-[active=true]:text-accent-foreground">
+            <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-black/20">
               <Link href="/"> 
                 <Bell size={18} />
                 <span className="sr-only">Notifications</span>
@@ -49,7 +73,7 @@ export default function Header() {
 
           {/* Search bar - hidden on mobile, shown on md and up */}
           <div className="hidden md:flex items-center gap-1 py-1.5">
-            <Button variant="ghost" className="text-primary-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
+            <Button variant="ghost" className="text-accent-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
               Course Search
             </Button>
             <Input 
