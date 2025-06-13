@@ -22,17 +22,13 @@ export default function Header() {
     backgroundSize: '80px 80px', // Repeats the full 4-color pattern every 80px
   };
 
-  const collegeNameStyle = {
-    color: 'hsl(0, 0%, 10%)', // Theme foreground color (near black)
-  };
-
   return (
     // Top section of the header with the new pattern
     <div style={headerPatternStyle}>
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div>
-            <h1 className="text-lg font-bold" style={collegeNameStyle}>Nairobi College</h1>
+            <h1 className="text-lg font-bold text-primary">Nairobi College</h1>
           </div>
         </Link>
 
