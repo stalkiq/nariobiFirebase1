@@ -104,7 +104,7 @@ export default function DashboardPage() {
               onClick={() => setActiveTab('notifications')}
               className={`px-3 py-1.5 text-xs font-medium border-b-2 ${activeTab === 'notifications' ? 'border-accent text-accent' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
             >
-              Notifications Dashboard
+              Notifications/Courses
             </button>
           </div>
 
