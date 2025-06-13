@@ -42,7 +42,11 @@ export default function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Tabs and Bell Icon - hidden on mobile, shown on md and up */}
           <div className="hidden md:flex items-center">
-            <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-black/20 rounded-t-sm" data-active={true}>
+            <Link 
+              href="/" 
+              className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-background data-[active=true]:text-foreground rounded-t-sm" 
+              data-active={true}
+            >
               Home
             </Link>
             {courseTabs.map(course => (
