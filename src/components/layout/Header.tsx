@@ -24,7 +24,8 @@ export default function Header() {
       
       <nav className="bg-uq-nav-bg text-accent-foreground">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center">
+          {/* Tabs and Bell Icon - hidden on mobile, shown on md and up */}
+          <div className="hidden md:flex items-center">
             <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
               Welcome
             </Link>
@@ -40,8 +41,14 @@ export default function Header() {
               </Link>
             </Button>
           </div>
+          {/* Placeholder for mobile menu toggle if course tabs were in a menu */}
+          <div className="md:hidden">
+            {/* Example: <Button variant="ghost" size="icon"><MenuIcon /></Button> */}
+          </div>
 
-          <div className="flex items-center gap-1 py-1.5">
+
+          {/* Search bar - hidden on mobile, shown on md and up */}
+          <div className="hidden md:flex items-center gap-1 py-1.5">
             <Button variant="ghost" className="text-primary-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
               Course Search
             </Button>
@@ -54,6 +61,15 @@ export default function Header() {
               Go
             </Button>
           </div>
+           {/* Ensure there's a balanced element for flexbox if left side is hidden and right side is present, or vice-versa
+               Or ensure the parent justifies to one side if one child is hidden.
+               Current setup: if tabs are hidden, and search is hidden, it's fine.
+               If tabs are shown (desktop), and search is shown (desktop), it's fine.
+               On mobile, both are hidden, the nav bar will appear empty but maintain height.
+            */}
+            {/* If only one side of nav items might be shown on mobile, add a div here to balance flex, or adjust justify-content of parent */}
+             <div className="md:hidden flex-1"> {/* This empty div ensures search doesn't jump if it were visible and tabs weren't */}
+             </div>
         </div>
       </nav>
     </div>

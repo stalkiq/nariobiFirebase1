@@ -72,9 +72,9 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
       </header>
 
       {/* Main Content Area with Sidebar */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-col md:flex-row flex-1 min-h-0"> {/* Adjusted for mobile stacking */}
         {/* Left Sidebar */}
-        <aside className="w-72 bg-course-sidebar-bg p-4 space-y-4 border-r border-course-border-color overflow-y-auto shrink-0">
+        <aside className="w-full md:w-72 bg-course-sidebar-bg p-4 space-y-4 border-b md:border-b-0 md:border-r border-course-border-color overflow-y-auto md:shrink-0"> {/* Adjusted for mobile */}
           <div className="flex items-center gap-2 text-course-text-secondary p-2 border border-course-border-color rounded-md">
             <Search className="h-4 w-4" />
             <span>Search Modules...</span>
@@ -180,5 +180,3 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
     </div>
   );
 }
-
-    
