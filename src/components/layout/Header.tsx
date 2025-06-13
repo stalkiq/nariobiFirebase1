@@ -2,7 +2,6 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Bell, Home as HomeIcon } from 'lucide-react';
@@ -76,19 +75,25 @@ export default function Header() {
           </div>
 
           {/* Search bar - hidden on mobile, shown on md and up */}
-          <div className="hidden md:flex items-center gap-1 py-1.5">
-            <Button variant="ghost" className="text-accent-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
-              Course Search
+          <form
+            action="https://www.google.com/search"
+            method="GET"
+            target="_blank"
+            className="hidden md:flex items-center gap-1 py-1.5"
+          >
+            <Button variant="ghost" className="text-accent-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto" type="button" onClick={() => (document.querySelector('input[name="q"]') as HTMLInputElement)?.focus()}>
+              Google Search
             </Button>
             <Input
               type="search"
+              name="q"
               placeholder=""
               className="h-7 text-xs w-32 bg-white text-gray-900 border-gray-400 focus:ring-ring focus:border-ring"
             />
-            <Button variant="secondary" size="sm" className="h-7 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 px-2.5">
+            <Button type="submit" variant="secondary" size="sm" className="h-7 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 px-2.5">
               Go
             </Button>
-          </div>
+          </form>
         </div>
       </nav>
     </div>
