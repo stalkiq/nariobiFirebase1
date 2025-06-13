@@ -2,7 +2,6 @@
 "use client";
 
 import Link from 'next/link';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Bell, Home as HomeIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
@@ -74,26 +73,7 @@ export default function Header() {
           <div className="md:hidden flex-1"> {/* This empty div ensures search doesn't jump if it were visible and tabs weren't */}
           </div>
 
-          {/* Search bar - hidden on mobile, shown on md and up */}
-          <form
-            action="https://www.google.com/search"
-            method="GET"
-            target="_blank"
-            className="hidden md:flex items-center gap-1 py-1.5"
-          >
-            <Button variant="ghost" className="text-accent-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto" type="button" onClick={() => (document.querySelector('input[name="q"]') as HTMLInputElement)?.focus()}>
-              Google Search
-            </Button>
-            <Input
-              type="search"
-              name="q"
-              placeholder=""
-              className="h-7 text-xs w-32 bg-white text-gray-900 border-gray-400 focus:ring-ring focus:border-ring"
-            />
-            <Button type="submit" variant="secondary" size="sm" className="h-7 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 px-2.5">
-              Go
-            </Button>
-          </form>
+          {/* Search bar removed */}
         </div>
       </nav>
     </div>
