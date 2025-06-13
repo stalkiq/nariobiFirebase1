@@ -8,32 +8,22 @@ import { Bell } from 'lucide-react';
 export default function Header() {
   const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; 
 
-  // New subtle pattern style for the top header section
   const headerPatternStyle = {
     backgroundColor: 'hsl(35, 25%, 88%)', // Theme background (light warm beige)
     backgroundImage: `
       repeating-linear-gradient(
         45deg,
-        transparent,
-        transparent 9px,
-        hsl(30, 30%, 75%) 9px, /* Softer, lighter brown lines */
-        hsl(30, 30%, 75%) 10px   /* Line thickness 1px */
-      ),
-      repeating-linear-gradient(
-        135deg,
-        transparent,
-        transparent 9px,
-        hsl(30, 30%, 75%) 9px,
-        hsl(30, 30%, 75%) 10px
+        transparent 0px, transparent 19px, hsl(120, 60%, 25%) 19px, hsl(120, 60%, 25%) 20px, /* Dark Green line */
+        transparent 20px, transparent 39px, hsl(45, 70%, 50%) 39px, hsl(45, 70%, 50%) 40px, /* Gold line */
+        transparent 40px, transparent 59px, hsl(0, 70%, 50%) 59px, hsl(0, 70%, 50%) 60px,  /* Red line */
+        transparent 60px, transparent 79px, hsl(0, 0%, 10%) 79px, hsl(0, 0%, 10%) 80px    /* Black line */
       )
     `,
-    backgroundSize: '20px 20px', // Size of the repeating grid
+    backgroundSize: '80px 80px', // Repeats the full 4-color pattern every 80px
   };
 
-  // Updated style for the college name for readability on light background
   const collegeNameStyle = {
     color: 'hsl(0, 0%, 10%)', // Theme foreground color (near black)
-    // textShadow: '0px 1px 1px hsla(0, 0%, 0%, 0.1)', // Optional: very subtle dark shadow if needed
   };
 
   return (
