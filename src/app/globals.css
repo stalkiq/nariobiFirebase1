@@ -3,9 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* Removed direct body font-family, next/font and tailwind config will handle it */
 
 @layer base {
   :root {
@@ -148,4 +146,3 @@ body {
     @apply font-semibold;
   }
 }
-
