@@ -12,7 +12,6 @@ export default function Header() {
     <div className="bg-uq-header-bg text-primary-foreground">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          {/* SVG logo removed */}
           <div>
             <h1 className="text-lg font-bold">Nairobi College</h1>
           </div>
@@ -23,7 +22,7 @@ export default function Header() {
         </div>
       </div>
       
-      <nav className="bg-uq-nav-bg">
+      <nav className="bg-uq-nav-bg text-accent-foreground">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
