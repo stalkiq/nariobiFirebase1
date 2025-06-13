@@ -11,9 +11,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'], 
-        headline: ['var(--font-inter)', 'sans-serif'], 
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-inter)', 'sans-serif'],
         code: ['monospace'],
+        arial: ['Arial', 'Helvetica', 'sans-serif'], // Added Arial font stack
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -78,7 +79,7 @@ export default {
         'course-active-item-bg': 'hsl(var(--course-active-item-bg))',
       },
       borderRadius: {
-        lg: 'var(--radius)', 
+        lg: 'var(--radius)',
         md: 'calc(var(--radius))',
         sm: 'calc(var(--radius))',
       },

@@ -31,7 +31,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           {/* Apply new styles for "Nairobi College" text */}
           <div>
-            <h1 className="text-4xl font-black text-primary uppercase tracking-widest">Nairobi College</h1>
+            <h1 className="font-arial text-4xl font-black text-primary uppercase tracking-widest">Nairobi College</h1>
           </div>
         </Link>
 
