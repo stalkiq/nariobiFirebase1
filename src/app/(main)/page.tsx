@@ -62,14 +62,8 @@ export default function DashboardPage() {
           <SidebarModule title="Tools" defaultOpen={true}>
             <SidebarLink href="/history" centered anchorClassName="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground rounded-[var(--radius)] transition-all duration-150 ease-in-out">History</SidebarLink>
             <SidebarLink href="/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
-            <SidebarLink href="/library-access" icon={<Library size={14}/>}>Library Access</SidebarLink>
             <SidebarLink href="/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
-            <SidebarLink href="/tasks" icon={<CheckSquare size={14}/>}>Tasks</SidebarLink>
-            <SidebarLink href="/marks" icon={<BarChart2 size={14}/>}>My Marks</SidebarLink>
-            <SidebarLink href="/profile" icon={<UserCircle size={14}/>}>Personal Information</SidebarLink>
-            <SidebarLink href="/directory" icon={<Users size={14}/>}>User Directory</SidebarLink>
             <SidebarLink href="/address-book" icon={<BookOpen size={14}/>}>Address Book</SidebarLink>
-            <SidebarLink href="/media" icon={<LayoutGrid size={14}/>}>My Media</SidebarLink>
           </SidebarModule>
           <SidebarModule title="Course Search">
              <div className="p-2 bg-white border-t border-border">
