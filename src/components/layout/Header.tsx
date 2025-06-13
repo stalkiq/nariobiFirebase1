@@ -12,18 +12,7 @@ export default function Header() {
     <div className="bg-uq-header-bg text-primary-foreground">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          {/* New SVG logo. Removed the wrapping div with bg-white. */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32" 
-            height="32"
-            viewBox="0 0 100 100" 
-            fill="currentColor" 
-            aria-hidden="true"
-          >
-            <path d="M50 25 C 40 25 35 30 30 40 S 25 60 30 70 S 40 85 50 85 S 70 80 70 70 S 75 50 70 40 S 60 25 50 25 Z M 50 10 C 30 10 20 30 20 50 S 30 90 50 90 S 80 70 80 50 S 70 10 50 10 Z M 50 15 C 35 15 25 35 25 50 S 35 85 50 85 S 75 65 75 50 S 65 15 50 15 Z" />
-            <path d="M50,40 C35,40 30,25 50,15 C70,25 65,40 50,40 M50,15 C40,5 60,5 50,15 M50,40 Q40,55 30,50 C20,45 25,65 40,70 C55,75 60,60 50,55 Q60,55 70,50 C80,45 75,65 60,70 C45,75 40,60 50,40 Z"/>
-          </svg>
+          {/* SVG logo removed */}
           <div>
             <h1 className="text-lg font-bold">Nairobi College</h1>
           </div>
