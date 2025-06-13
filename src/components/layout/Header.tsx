@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Bell, Home as HomeIcon } from 'lucide-react'; // Renamed Home to HomeIcon to avoid conflict
+import { Bell, Home as HomeIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
@@ -18,7 +18,7 @@ export default function Header() {
       repeating-linear-gradient(
         45deg,
         transparent 0px, transparent 19px, hsl(120, 60%, 25%) 19px, hsl(120, 60%, 25%) 20px, /* Dark Green line */
-        transparent 20px, transparent 39px, hsl(45, 70%, 50%) 39px, hsl(45, 70%, 50%) 40px, /* Gold line */
+        transparent 20px, transparent 39px, hsl(200, 70%, 50%) 39px, hsl(200, 70%, 50%) 40px, /* Gold line (using a blueish gold for visibility) */
         transparent 40px, transparent 59px, hsl(0, 70%, 50%) 59px, hsl(0, 70%, 50%) 60px,  /* Red line */
         transparent 60px, transparent 79px, hsl(0, 0%, 10%) 79px, hsl(0, 0%, 10%) 80px    /* Black line */
       )
@@ -48,7 +48,7 @@ export default function Header() {
           <div className="hidden md:flex items-center">
             <Link
               href="/"
-              className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-background data-[active=true]:text-foreground rounded-t-sm flex items-center justify-center"
+              className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:text-foreground rounded-t-sm flex items-center justify-center"
               data-active={pathname === '/'}
               aria-label="Home"
             >
