@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
 import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History as HistoryIcon } from 'lucide-react';
-import { Input } from '@/components/ui/input'; 
+import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 
 // Helper component for sidebar sections
@@ -48,13 +48,6 @@ const SidebarLink = ({ href, children, icon, target, centered, anchorClassName }
   </li>
 );
 
-// Placeholder course data grouping by semester
-const coursesBySemester = {
-  "Semester 1, 2023": allCourses.filter(c => c.id === 'cs101' || c.id === 'eng202'),
-  "Semester 2, 2022": allCourses.filter(c => c.id === 'bus305' || c.id === 'soc110'),
-};
-
-
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<'welcome' | 'notifications'>('welcome');
 
@@ -91,16 +84,16 @@ export default function DashboardPage() {
         </aside>
 
         {/* Center Panel: Course List / Welcome Content */}
-        <main className="md:col-span-2"> 
+        <main className="md:col-span-2">
           {/* Tab Navigation */}
           <div className="mb-0 border-b border-border flex">
-            <button 
+            <button
               onClick={() => setActiveTab('welcome')}
               className={`px-3 py-1.5 text-xs font-medium border-b-2 ${activeTab === 'welcome' ? 'border-accent text-accent' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
             >
               Welcome
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('notifications')}
               className={`px-3 py-1.5 text-xs font-medium border-b-2 ${activeTab === 'notifications' ? 'border-accent text-accent' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
             >
@@ -135,21 +128,16 @@ export default function DashboardPage() {
               <CardTitle className="text-sm font-semibold text-foreground">Course List</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              {Object.entries(coursesBySemester).map(([semester, courses]) => (
-                <div key={semester}>
-                  <h3 className="bg-uq-module-header-bg text-uq-module-header-text text-xs font-semibold p-1.5 rounded-none">{semester}</h3>
-                  <ul className="text-xs">
-                    {courses.map((course: Course) => (
-                      <li key={course.id} className="border-b border-border last:border-b-0">
-                        <Link href={`/courses/${course.id}`} className="block p-1.5 hover:bg-secondary">
-                          <span className="font-medium text-primary hover:underline">{course.title}</span> ({course.department})
-                          <p className="text-muted-foreground text-xs">{course.shortDescription.substring(0,100)}...</p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <ul className="text-xs">
+                {allCourses.map((course: Course) => (
+                  <li key={course.id} className="border-b border-border last:border-b-0">
+                    <Link href={`/courses/${course.id}`} className="block p-1.5 hover:bg-secondary">
+                      <span className="font-medium text-primary hover:underline">{course.title}</span> ({course.department})
+                      <p className="text-muted-foreground text-xs">{course.shortDescription.substring(0,100)}...</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
         </main>
