@@ -1,12 +1,16 @@
 
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Bell } from 'lucide-react';
+import { Bell, Home as HomeIcon } from 'lucide-react'; // Renamed Home to HomeIcon to avoid conflict
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305']; 
+  const pathname = usePathname();
+  const courseTabs = ['COMP3400', 'CS101', 'ENG202', 'BUS305'];
 
   const headerPatternStyle = {
     backgroundColor: 'hsl(35, 25%, 88%)', // Theme background (light warm beige)
@@ -36,32 +40,38 @@ export default function Header() {
           {/* Intentionally empty. Space for future user-specific links. */}
         </div>
       </div>
-      
+
       {/* Navigation bar section */}
       <nav className="bg-uq-nav-bg text-accent-foreground">
         <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Tabs and Bell Icon - hidden on mobile, shown on md and up */}
           <div className="hidden md:flex items-center">
-            <Link 
-              href="/" 
-              className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-background data-[active=true]:text-foreground rounded-t-sm" 
-              data-active={true}
+            <Link
+              href="/"
+              className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-background data-[active=true]:text-foreground rounded-t-sm flex items-center justify-center"
+              data-active={pathname === '/'}
+              aria-label="Home"
             >
-              Home
+              <HomeIcon size={18} />
             </Link>
             {courseTabs.map(course => (
-              <Link key={course} href={`/courses/${course.toLowerCase()}`} className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 rounded-t-sm">
+              <Link
+                key={course}
+                href={`/courses/${course.toLowerCase()}`}
+                className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-background data-[active=true]:text-foreground rounded-t-sm"
+                data-active={pathname === `/courses/${course.toLowerCase()}` || (pathname.startsWith(`/courses/${course.toLowerCase()}/`) )}
+              >
                 {course}
               </Link>
             ))}
             <Button asChild variant="ghost" className="p-2.5 hover:bg-black/20 rounded-t-sm data-[active=true]:bg-black/20">
-              <Link href="/"> 
+              <Link href="/">
                 <Bell size={18} />
                 <span className="sr-only">Notifications</span>
               </Link>
             </Button>
           </div>
-          
+
           <div className="md:hidden flex-1"> {/* This empty div ensures search doesn't jump if it were visible and tabs weren't */}
           </div>
 
@@ -70,9 +80,9 @@ export default function Header() {
             <Button variant="ghost" className="text-accent-foreground hover:bg-black/20 text-sm px-3 py-1.5 h-auto">
               Course Search
             </Button>
-            <Input 
-              type="search" 
-              placeholder="" 
+            <Input
+              type="search"
+              placeholder=""
               className="h-7 text-xs w-32 bg-white text-gray-900 border-gray-400 focus:ring-ring focus:border-ring"
             />
             <Button variant="secondary" size="sm" className="h-7 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 px-2.5">
