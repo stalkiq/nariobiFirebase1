@@ -27,7 +27,7 @@ export default function Header() {
           {/* Tabs and Bell Icon - hidden on mobile, shown on md and up */}
           <div className="hidden md:flex items-center">
             <Link href="/" className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground rounded-t-sm" data-active={true}>
-              Welcome
+              Home
             </Link>
             {courseTabs.map(course => (
               <Link key={course} href={`/courses/${course.toLowerCase()}`} className="px-3 py-2.5 text-sm font-medium hover:bg-black/20 rounded-t-sm">
