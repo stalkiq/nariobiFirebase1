@@ -59,8 +59,12 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
         {/* Left Sidebar: Tools */}
         <aside className="md:col-span-1 space-y-0">
+          <div className="px-2 pt-2 mb-3">
+            <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link href="/history">History</Link>
+            </Button>
+          </div>
           <SidebarModule title="Tools" defaultOpen={true}>
-            <SidebarLink href="/history" centered anchorClassName="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground rounded-[var(--radius)] transition-all duration-150 ease-in-out">History</SidebarLink>
             <SidebarLink href="/announcements" icon={<CalendarDays size={14}/>}>Announcements</SidebarLink>
             <SidebarLink href="/calendar" icon={<CalendarDays size={14}/>}>Calendar</SidebarLink>
             <SidebarLink href="/address-book" icon={<BookOpen size={14}/>}>Address Book</SidebarLink>
