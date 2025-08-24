@@ -30,11 +30,17 @@ export const photos: Photo[] = [
     src: '/images/images-1.jpg',
     alt: 'Campus Experience',
     description: 'Vibrant Nairobi College community'
+  },
+  {
+    id: '5',
+    src: '/images/historical-nairobi-college.jpg',
+    alt: 'Historical Nairobi College Group Photo',
+    description: 'A group of ten children and two adult women standing in front of a building, representing the early days of Nairobi College community in East Palo Alto, California. This black and white photograph captures the diverse student body and dedicated educators who were part of the pioneering "college without walls" that served the local community.'
   }
   // Add more photos below this line!
   // Example:
   // {
-  //   id: '5',
+  //   id: '6',
   //   src: '/images/your-new-photo.jpg',
   //   alt: 'Description of your photo',
   //   description: 'What this photo shows or represents'
