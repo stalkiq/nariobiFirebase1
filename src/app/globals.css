@@ -1,0 +1,148 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Removed direct body font-family, next/font and tailwind config will handle it */
+
+@layer base {
+  :root {
+    /* Light Brown and Black Sleek Theme - Light Mode */
+    --background: 35 25% 88%; /* Light warm beige/brown */
+    --foreground: 0 0% 10%; /* Near black for text */
+
+    --card: 35 20% 85%; /* Slightly darker light brown for cards */
+    --card-foreground: 0 0% 10%;
+
+    --popover: 35 25% 92%; /* Slightly lighter light brown for popovers */
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 8%; /* Black for primary actions */
+    --primary-foreground: 35 25% 95%; /* Very light brown/off-white text on primary */
+
+    --secondary: 35 20% 80%; /* A slightly darker/muted light brown */
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 35 15% 75%; /* Even more muted light brown */
+    --muted-foreground: 0 0% 30%; /* Darker muted text */
+
+    --accent: 30 30% 50%; /* Medium noticeable brown for accent */
+    --accent-foreground: 35 25% 95%; /* Very light brown/off-white text on accent */
+    
+    --destructive: 0 84.2% 60.2%; /* Standard red for destructive */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 15% 70%; /* Subtle brown border */
+    --input: 0 0% 100%; /* White for input background for sleekness */
+    --input-border: 35 15% 65%; /* Border for inputs */
+    --ring: 30 30% 55%; /* Accent-based ring color */
+    
+    --radius: 0.1rem; /* Sharper corners */
+
+    /* UQ Portal Theme - Light Brown and Black */
+    --uq-header-bg: 0 0% 8%; /* Primary color (Black) for header top */
+    --uq-nav-bg: 30 30% 50%; /* Accent brown for nav tabs */
+    --uq-module-header-bg: 30 30% 50%; /* Accent brown for module headers */
+    --uq-module-header-text: 35 25% 95%; /* Light text on module headers */
+    --uq-sidebar-bg: 35 20% 85%; /* Slightly darker light brown for sidebars */
+    --uq-content-bg: 35 25% 90%; /* Light brown for main content panels */
+
+    /* Course Player Theme - Light Brown and Black */
+    --course-page-bg: 35 25% 88%; /* Main page background */
+    --course-header-bg: 30 30% 50%; /* Accent brown header to match main navigation */
+    --course-sidebar-bg: 35 20% 85%; /* Sidebar background */
+    --course-content-area-bg: 35 25% 92%; /* Content area background, slightly lighter */
+    
+    --course-green-info-bg: 30 30% 40%; /* Darker, rich brown for info boxes */
+    --course-green-info-foreground: 35 25% 95%;
+    --course-green-item-bg: 30 30% 35%; /* Even darker brown for item backgrounds */
+    --course-green-item-foreground: 35 25% 90%;
+    --course-green-button-bg: 30 30% 45%; /* Medium brown buttons to match theme */
+    --course-green-button-hover-bg: 30 30% 35%; /* Darker brown hover state */
+    --course-green-button-foreground: 35 25% 95%;
+
+    --course-text-primary: 0 0% 10%; /* Black text on light brown */
+    --course-text-secondary: 0 0% 30%; /* Dark grey */
+    --course-text-tertiary: 0 0% 45%; /* Medium grey */
+
+    --course-border-color: 35 15% 70%; /* Subtle brown border */
+    --course-active-item-bg: 35 20% 80%; /* Active item bg - slightly darker light brown */
+  }
+
+  .dark {
+    /* Light Brown and Black Sleek Theme - Dark Mode */
+    --background: 25 10% 15%; /* Very dark brown */
+    --foreground: 35 25% 85%; /* Light beige text */
+
+    --card: 25 10% 20%;
+    --card-foreground: 35 25% 85%;
+
+    --popover: 25 10% 20%;
+    --popover-foreground: 35 25% 85%;
+
+    --primary: 35 25% 80%; /* Light brown becomes primary in dark */
+    --primary-foreground: 0 0% 10%; /* Black text on light brown */
+
+    --secondary: 25 10% 25%;
+    --secondary-foreground: 35 25% 85%;
+
+    --muted: 25 10% 30%;
+    --muted-foreground: 35 25% 70%;
+
+    --accent: 30 40% 60%; /* A more prominent brown for dark mode accent */
+    --accent-foreground: 0 0% 10%; /* Black text on accent */
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 25 10% 30%;
+    --input: 25 10% 22%; /* Darker input background */
+    --input-border: 25 10% 35%;
+    --ring: 30 40% 60%;
+
+    /* UQ Portal Theme - Dark Mode */
+    --uq-header-bg: 35 25% 80%; /* Primary color (Light Brown) for header top */
+    --uq-nav-bg: 30 40% 60%; /* Dark Accent brown for nav tabs */
+    --uq-module-header-bg: 30 40% 55%; /* Accent brown for module headers in dark */
+    --uq-module-header-text: 35 25% 95%;
+    --uq-sidebar-bg: 25 10% 18%; 
+    --uq-content-bg: 25 10% 20%; 
+
+    /* Course Player Theme - Dark Mode */
+    --course-page-bg: 25 10% 15%; /* Dark brown page background */
+    --course-header-bg: 30 40% 60%; /* Accent brown header to match main navigation */
+    --course-sidebar-bg: 25 10% 18%;
+    --course-content-area-bg: 25 10% 22%;
+    
+    --course-green-info-bg: 30 30% 70%; /* Lighter brown for info boxes on dark */
+    --course-green-info-foreground: 0 0% 10%;
+    --course-green-item-bg: 30 30% 65%;
+    --course-green-item-foreground: 0 0% 15%;
+    --course-green-button-bg: 35 25% 80%; /* Light brown buttons */
+    --course-green-button-hover-bg: 35 25% 75%;
+    --course-green-button-foreground: 0 0% 10%;
+
+    --course-text-primary: 35 25% 90%; /* Light text */
+    --course-text-secondary: 35 25% 75%;
+    --course-text-tertiary: 35 25% 60%;
+
+    --course-border-color: 25 10% 30%;
+    --course-active-item-bg: 25 10% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Remove default ShadCN rounding if it interferes */
+  .rounded-lg, .rounded-md, .rounded-sm, .rounded-full {
+    border-radius: var(--radius);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
