@@ -58,7 +58,12 @@ export default function PhotosPage() {
             <CardContent className="p-3">
               <p className="text-xs text-muted-foreground mb-3">{photo.description}</p>
               <div className="flex justify-end">
-                <Button variant="outline" size="sm" className="h-6 text-xs border-border">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="h-6 text-xs border-border"
+                  onClick={() => window.open(photo.src, '_blank')}
+                >
                   View Full Size
                 </Button>
               </div>
