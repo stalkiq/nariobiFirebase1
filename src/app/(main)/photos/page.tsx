@@ -4,34 +4,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image, ArrowLeft } from 'lucide-react';
+import { photos } from '@/lib/data/photos';
 
 export default function PhotosPage() {
-  const photos = [
-    {
-      id: '1',
-      src: '/images/images.jpg',
-      alt: 'Learning Environment',
-      description: 'Students engaging in collaborative learning'
-    },
-    {
-      id: '2',
-      src: '/images/download.jpg',
-      alt: 'Student Life',
-      description: 'Diverse community of learners'
-    },
-    {
-      id: '3',
-      src: '/images/download-1.jpg',
-      alt: 'Academic Excellence',
-      description: 'Building your future with Nairobi College'
-    },
-    {
-      id: '4',
-      src: '/images/images-1.jpg',
-      alt: 'Campus Experience',
-      description: 'Vibrant Nairobi College community'
-    }
-  ];
 
   return (
     <div className="bg-uq-content-bg p-3 border border-border rounded-none shadow-md">
