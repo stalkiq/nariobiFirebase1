@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Image, ArrowLeft, Download } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Image, ArrowLeft } from 'lucide-react';
 
 export default function PhotosPage() {
   const photos = [
@@ -9,37 +9,27 @@ export default function PhotosPage() {
       id: '1',
       src: '/images/images.jpg',
       alt: 'Learning Environment',
-      title: 'Learning Environment',
-      description: 'Students engaging in collaborative learning',
-      category: 'Campus Life'
+      description: 'Students engaging in collaborative learning'
     },
     {
       id: '2',
       src: '/images/download.jpg',
       alt: 'Student Life',
-      title: 'Student Community',
-      description: 'Diverse community of learners',
-      category: 'Student Life'
+      description: 'Diverse community of learners'
     },
     {
       id: '3',
       src: '/images/download-1.jpg',
       alt: 'Academic Excellence',
-      title: 'Academic Excellence',
-      description: 'Building your future with Nairobi College',
-      category: 'Academic'
+      description: 'Building your future with Nairobi College'
     },
     {
       id: '4',
       src: '/images/images-1.jpg',
       alt: 'Campus Experience',
-      title: 'Campus Experience',
-      description: 'Vibrant Nairobi College community',
-      category: 'Campus Life'
+      description: 'Vibrant Nairobi College community'
     }
   ];
-
-  const categories = ['All', 'Campus Life', 'Student Life', 'Academic', 'Events'];
 
   return (
     <div className="bg-uq-content-bg p-3 border border-border rounded-none shadow-md">
@@ -52,19 +42,7 @@ export default function PhotosPage() {
         <p className="text-sm text-muted-foreground">Explore photos from around Nairobi College</p>
       </div>
 
-      {/* Category Filter */}
-      <div className="mb-4 flex flex-wrap gap-2">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant="outline"
-            size="sm"
-            className="text-xs border-border hover:bg-secondary"
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
+
 
       {/* Photos Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -76,21 +54,10 @@ export default function PhotosPage() {
                 alt={photo.alt}
                 className="w-full h-48 object-cover"
               />
-              <div className="absolute top-2 right-2">
-                <Button size="sm" variant="secondary" className="h-8 w-8 p-0 bg-white/80 hover:bg-white">
-                  <Download className="h-4 w-4" />
-                </Button>
-              </div>
             </div>
-            <CardHeader className="p-3 pb-2">
-              <CardTitle className="text-sm font-semibold text-foreground">{photo.title}</CardTitle>
-              <p className="text-xs text-muted-foreground">{photo.description}</p>
-            </CardHeader>
-            <CardContent className="p-3 pt-0">
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-accent bg-accent/10 px-2 py-1 rounded">
-                  {photo.category}
-                </span>
+            <CardContent className="p-3">
+              <p className="text-xs text-muted-foreground mb-3">{photo.description}</p>
+              <div className="flex justify-end">
                 <Button variant="outline" size="sm" className="h-6 text-xs border-border">
                   View Full Size
                 </Button>
