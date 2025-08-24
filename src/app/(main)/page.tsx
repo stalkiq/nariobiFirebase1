@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { courses as allCourses, type Course } from '@/lib/data/courses';
 import Link from 'next/link';
-import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History as HistoryIcon } from 'lucide-react';
+import { ChevronRight, LayoutGrid, CalendarDays, CheckSquare, BarChart2, UserCircle, Users, Settings, Search, ExternalLink, Briefcase, PlusCircle, BookOpen, Library, BookMarked, History as HistoryIcon, Image } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { Carousel } from '@/components/ui/carousel';
@@ -63,6 +63,9 @@ export default function DashboardPage() {
           <div className="px-2 pt-2 mb-3 space-y-2">
             <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/history">History</Link>
+            </Button>
+            <Button asChild variant="outline" className="w-full border-border hover:bg-secondary">
+              <Link href="/photos">Photos</Link>
             </Button>
             <Button asChild variant="outline" className="w-full border-border hover:bg-secondary">
               <Link href="/articles">Relevant Articles</Link>
