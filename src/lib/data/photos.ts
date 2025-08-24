@@ -11,7 +11,25 @@ export const photos: Photo[] = [
     id: '1',
     src: '/photos/NEW%20PICTURE.png',
     alt: 'New Picture',
-    description: 'A new picture you added'
+    description: ''
+  },
+  {
+    id: '2',
+    src: '/photos/new%20picture%203.png',
+    alt: 'New Picture 3',
+    description: ''
+  },
+  {
+    id: '3',
+    src: '/photos/new%20picture%204.png',
+    alt: 'New Picture 4',
+    description: ''
+  },
+  {
+    id: '4',
+    src: '/photos/new%20picture%206.png',
+    alt: 'New Picture 6',
+    description: ''
   }
 ];
 
